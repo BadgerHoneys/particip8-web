@@ -3,14 +3,16 @@
 
     angular
         .module('particip8WebApp')
-        .controller('MainController', ['$scope', function ($scope) {
+        .controller('MainController', ['$scope', '$location', function ($scope, $location) {
 
-        	console.log("Main Controller Loaded Up!")
+        	$scope.user = {
+        		username: "",
+        		password: ""
+        	}
 
-        	$scope.x = "test"
-
-            $scope.testMethod = function () {
-                console.log("Test Method Invoked!!");
+            $scope.login = function () {
+            	$location.path('/home');
             };
+
         }]);
 })();

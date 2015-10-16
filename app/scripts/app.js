@@ -24,6 +24,11 @@ angular
         controller: 'MainController',
         controllerAs: 'main'
       })
+      .when('/home',{
+        templateUrl: '/app/views/home.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
+      })
       .when('/about', {
         templateUrl: '/app/views/about.html',
         controller: 'AboutController',
