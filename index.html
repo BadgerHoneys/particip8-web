@@ -5,66 +5,35 @@
     <title>Particip8</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="app/styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- endbuild -->
   </head>
   <body ng-app="particip8WebApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div id="header">
-      <div class="content-container">
+    <div class="header">
+      <div class="container">
         <a ng-href="#/home">
           <div class="logo">
-            <img src="images/Particip8_Logo.png" />
+            <img src="app/images/Particip8_Logo.png" />
           </div>
         </a>
-
-        <!-- There are no nav items on the index. The user is not yet logged in. -->
       </div>
     </div>
 
-    <div class="content-container">
-      <div ng-view=""><br><br><br>hi<br><br><br></div>
-    </div>
-
-    <div class="content-container">
-      <div id="footer">
-        <div class="container">
-          <div class="copyright">&copy; 2015 Particip8, LLC</div>
-          <a ng-href="#/about">About Us</a>
-          <a ng-href="#/contact">Contact Us</a>
-          <a ng-href="#/register_school">Register your School</a>
-          <a ng-href="#/Help">Help</a>
-        </div>
+    <div class="container">
+      <div ng-view="">
       </div>
     </div>
 
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
+    <div class="container navbar-fixed-bottom footer text-center">
+        <div class="copyright">&copy; 2015 Particip8, LLC</div>
+        <a ng-href="#/about">About Us</a>
+        <a ng-href="#/contact">Contact Us</a>
+        <a ng-href="#/register_school">Register your School</a>
+        <a ng-href="#/help">Help</a>
+      </div>
+    </div>
 
     <script src="Scripts/jquery-2.1.4.min.js"></script>
     <script src="Scripts/angular.js"></script>
@@ -76,10 +45,12 @@
     <script src="Scripts/angular-sanitize.js"></script>
     <script src="Scripts/angular-touch.js"></script>
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="app/scripts/app.js"></script>
     <script src="app/scripts/controllers/main.js"></script>
-    <!-- endbuild -->
+    <script src="app/scripts/controllers/about.js"></script>
+    <script src="app/scripts/controllers/help.js"></script>
+    <script src="app/scripts/controllers/contact.js"></script>
+    <script src="app/scripts/controllers/register_school.js"></script>
 
 </body>
 </html>

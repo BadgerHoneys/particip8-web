@@ -29,6 +29,21 @@ angular
         controller: 'AboutController',
         controllerAs: 'about'
       })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl',
+        controllerAs: 'contact'
+      })
+      .when('/register_school', {
+        templateUrl: 'views/register_school.html',
+        controller: 'RegisterSchoolCtrl',
+        controllerAs: 'register_school'
+      })
+      .when('/help', {
+        templateUrl: 'views/help.html',
+        controller: 'HelpCtrl',
+        controllerAs: 'help'
+      })
       .otherwise({
         redirectTo: '/'
       });
