@@ -1,17 +1,18 @@
-'use strict';
+(function () {
+    'use strict';
 
-/**
- * @ngdoc function
- * @name particip8WebApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the particip8WebApp
- */
-angular.module('particip8WebApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    angular
+        .module('particip8WebApp')
+        .controller('MainController', ['$scope', '$location', function ($scope, $location) {
+
+        	$scope.user = {
+        		username: "",
+        		password: ""
+        	}
+
+            $scope.login = function () {
+            	$location.path('/home');
+            };
+
+        }]);
+})();
