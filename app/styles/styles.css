@@ -3,16 +3,16 @@
   src:url('../fonts/Harabara Mais Demo.otf');
 }
 
-#header {
+.header {
 	min-height:60px;
 	border-bottom:2px solid #cccccc;
 }
 
-#header .logo{
+.header .logo{
 	float:left;
 }
 
-#header .nav-item{
+.header .nav-item{
 	font-family:arial, sans-serif;
 	font-size:18px;
 	float:right;
@@ -21,36 +21,26 @@
 	color:#444444;
 }
 
-#footer {
-	position:fixed;
-	bottom:0;
-	width:1000px;
-	text-align:center;
+.footer {
 	border-top:1px solid #cccccc;
 	padding:10px 0px;
 	color:#444444;
 	font-size:14px;
 }
 
-#footer a {
+.footer a {
 	cursor:pointer;
 	color:#444444;
 	display:inline;
 	padding:3px 10px;
 }
 
-#footer a:hover {
+.footer a:hover {
 	color:#141414;
 }
 
-#footer .copyright{
+.footer .copyright{
 	display:inline;
 	padding:3px 10px;
 	color:#0090ff;
-}
-
-.content-container {
-	margin-left:auto;
-	margin-right:auto;
-	width:1000px;
 }
