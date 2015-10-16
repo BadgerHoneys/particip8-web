@@ -3,16 +3,16 @@
   src:url('../fonts/Harabara Mais Demo.otf');
 }
 
-#header {
+.header {
 	min-height:60px;
 	border-bottom:2px solid #cccccc;
 }
 
-#header .logo{
+.header .logo{
 	float:left;
 }
 
-#header .nav-item{
+.header .nav-item{
 	font-family:arial, sans-serif;
 	font-size:18px;
 	float:right;
@@ -21,36 +21,89 @@
 	color:#444444;
 }
 
-#footer {
-	position:fixed;
-	bottom:0;
-	width:1000px;
-	text-align:center;
+.footer {
 	border-top:1px solid #cccccc;
 	padding:10px 0px;
 	color:#444444;
 	font-size:14px;
 }
 
-#footer a {
+.footer a {
 	cursor:pointer;
 	color:#444444;
 	display:inline;
 	padding:3px 10px;
 }
 
-#footer a:hover {
+.footer a:hover {
 	color:#141414;
 }
 
-#footer .copyright{
+.footer .copyright{
 	display:inline;
 	padding:3px 10px;
 	color:#0090ff;
 }
 
-.content-container {
+.login_panel{
 	margin-left:auto;
 	margin-right:auto;
-	width:1000px;
 }
+
+.login_helper{
+	text-decoration:underline;
+	color:#999999;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+}
+
+.login_banner{
+	width:400px;
+	color:#ffffff;
+	padding:4px 15px;
+	font-size:24px;
+	border-top-left-radius:7px;
+	border-top-right-radius:7px;
+	background-color:#0090ff;
+	border-bottom:1px solid #ffffff;
+}
+
+.login_form{
+	width:400px;
+	min-height: 300px;
+	background-color:#0090ff;
+	border-bottom-left-radius:7px;
+	border-bottom-right-radius:7px;
+	border-top:1px solid #ffffff;
+	text-align:center;
+}
+
+.login_input{
+	width:370px;
+	font-size:24px;
+	font-family:Arial, sans-serif;
+	line-height:32px;
+	color:#444444;
+	padding:2px 8px;
+	margin-top:15px;
+	border-radius:7px;
+}
+
+.login_btn{
+	width:370px;
+	margin-top:15px;
+	font-size:28px;
+	font-family:harabara;
+	color:#ffffff;
+	text-align:center;
+	padding-top:4px;
+	border-radius:7px;
+	background: linear-gradient(#ff811a, #f28933);
+}
+
+
+
+
+
+
+
