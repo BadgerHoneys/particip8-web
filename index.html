@@ -11,7 +11,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="app/styles/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- endbuild -->
   </head>
@@ -24,14 +24,16 @@
       <div class="container">
         <a ng-href="#/home">
           <div class="logo">
-            <img src="images/Particip8_Logo.png" />
+            <img src="app/images/Particip8_Logo.png" />
           </div>
         </a>
       </div>
     </div>
 
     <div class="container">
-      <div ng-view=""></div>
+      <div ng-view="">
+
+      </div>
     </div>
 
     <div class="container navbar-fixed-bottom footer text-center">
@@ -67,12 +69,12 @@
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/help.js"></script>
-    <script src="scripts/controllers/contact.js"></script>
-    <script src="scripts/controllers/register_school.js"></script>
+    <script src="app/scripts/app.js"></script>
+    <script src="app/scripts/controllers/main.js"></script>
+    <script src="app/scripts/controllers/about.js"></script>
+    <script src="app/scripts/controllers/help.js"></script>
+    <script src="app/scripts/controllers/contact.js"></script>
+    <script src="app/scripts/controllers/register_school.js"></script>
     <!-- endbuild -->
 </body>
 </html>
