@@ -1,21 +1,26 @@
-<div class="container">
+<div class="row">
+	<div class="banner col-md-4 col-md-offset-4">
+		My Classes
+	</div>
+</div>
 
-	<div class="row" ng-repeat="class in classes">
-		<div class="col-md-4">
-			<p>{{class.name}}</p>
-		</div>
-
-		<div class="col-md-2">
-			<p>{{class.days}}</p>
-		</div>
-
-		<div class="col-md-4">
-			<p>{{class.times}}</p>
-		</div>
-
-		<div class="col-md-2">
-			<input type="button" ng-click="manageClass(class)" value="Manage" />
-		</div>
+<div class="row class_overview" ng-repeat="class in classes">
+	<div class="col-md-4">
+		<div class="class_name">{{class.name}}</div>
 	</div>
 
+	<div class="col-md-2">
+		<div class="class_info">{{class.days}}</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="class_info">{{class.times}}</div>
+	</div>
+
+	<div class="col-md-2">
+		<a href="" class="class_action" ng-click="manageClass(class)">Manage Class</a>
+		<br>
+		<a href="" class="class_action" ng-click="genClassReport(class)">Generate Report</a>
+		<div class="clearfix"></div>
+	</div>
 </div>
