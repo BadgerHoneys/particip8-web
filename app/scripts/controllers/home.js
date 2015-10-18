@@ -3,7 +3,7 @@
 
     angular
         .module('particip8WebApp')
-        .controller('HomeController', ['$scope', '$location', function ($scope, $location) {
+        .controller('HomeCtrl', ['$scope', '$location', function ($scope, $location) {
 
 
             $scope.classes = [
@@ -23,7 +23,6 @@
 
             $scope.manageClass = function(classroom)
             {
-                console.log(classroom);
                 $location.path('/class/' + classroom.id);
             }
         }]);

@@ -21,33 +21,38 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: '/app/views/main.html',
-        controller: 'MainController',
+        controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/home',{
         templateUrl: '/app/views/home.html',
-        controller: 'HomeController',
+        controller: 'HomeCtrl',
         controllerAs: 'home'
       })
       .when('/about', {
         templateUrl: '/app/views/about.html',
-        controller: 'AboutController',
+        controller: 'AboutCtrl',
         controllerAs: 'about'
       })
       .when('/contact', {
-        templateUrl: 'views/contact.html',
+        templateUrl: 'app/views/contact.html',
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
       .when('/register_school', {
-        templateUrl: 'views/register_school.html',
+        templateUrl: 'app/views/register_school.html',
         controller: 'RegisterSchoolCtrl',
         controllerAs: 'register_school'
       })
       .when('/help', {
-        templateUrl: 'views/help.html',
+        templateUrl: 'app/views/help.html',
         controller: 'HelpCtrl',
         controllerAs: 'help'
+      })
+      .when('/class/:id', {
+        templateUrl: 'app/views/class.html',
+        controller: 'ClassCtrl',
+        controllerAs: 'class'
       })
       .otherwise({
         redirectTo: '/'
