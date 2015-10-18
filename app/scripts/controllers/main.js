@@ -3,7 +3,7 @@
 
     angular
         .module('particip8WebApp')
-        .controller('MainController', ['$scope', '$location', function ($scope, $location) {
+        .controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
 
         	$scope.user = {
         		username: "",

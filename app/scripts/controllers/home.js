@@ -4,7 +4,6 @@
     angular
         .module('particip8WebApp')
         .controller('HomeController', ['$scope', '$location', 'Classes', function ($scope, $location, Classes) {
-
             $scope.classes = [];
 
             Classes.query(function(data){
@@ -16,7 +15,6 @@
 
             $scope.manageClass = function(classroom)
             {
-                console.log(classroom);
                 $location.path('/class/' + classroom.id);
             }
         }]);
