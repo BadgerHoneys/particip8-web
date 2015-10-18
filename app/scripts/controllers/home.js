@@ -3,23 +3,16 @@
 
     angular
         .module('particip8WebApp')
-        .controller('HomeController', ['$scope', '$location', function ($scope, $location) {
+        .controller('HomeController', ['$scope', '$location', 'Classes', function ($scope, $location, Classes) {
 
+            $scope.classes = [];
 
-            $scope.classes = [
-                {
-                    id: 1,
-                    name: "Math",
-                    days: "TR",
-                    times: "1pm-3pm"
-                },
-                {
-                    id: 2,
-                    name: "Science",
-                    days: "MTWRF",
-                    times: "11am-1pm"
-                }
-            ];
+            Classes.query(function(data){
+
+                console.log(data);
+
+            });
+
 
             $scope.manageClass = function(classroom)
             {
