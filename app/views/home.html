@@ -4,23 +4,40 @@
 	</div>
 </div>
 
-<div class="row class_overview" ng-repeat="class in classes">
-	<div class="col-md-4">
+<div class="row classes_overview" ng-repeat="class in classes" ng-click="manageClass(class)">
+	<div class="col-md-3">
 		<div class="class_name">{{class.name}}</div>
+	</div>
+
+	<div class="col-md-1">
+		<div class="class_label">Days:</div>
 	</div>
 
 	<div class="col-md-2">
 		<div class="class_info">{{class.days}}</div>
 	</div>
 
-	<div class="col-md-3">
+	<div class="col-md-1">
+		<div class="class_label">Times:</div>
+	</div>
+
+	<div class="col-md-2">
 		<div class="class_info">{{class.start_time}} - {{class.end_time}}</div>
 	</div>
 
-	<div class="col-md-3">
-		<a href="" class="class_action" ng-click="manageClass(class)">Manage Class</a>
-		<div class="clearfix"></div>
-		<a href="" class="class_action" ng-click="genClassReport(class)">Generate Report</a>
-		<div class="clearfix"></div>
+	<div class="col-md-2">
+		<div class="class_label"># of Students:</div>
+	</div>
+
+	<div class="col-md-1">
+		<div class="class_info">{{class.student_count}}</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3 col-md-offset-9">
+		<button href="" class="class_btn" ng-click="addClass()">
+			+Add a Class
+		</button>
 	</div>
 </div>

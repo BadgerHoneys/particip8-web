@@ -54,6 +54,11 @@ angular
         controller: 'ClassCtrl',
         controllerAs: 'class'
       })
+      .when('/new_class/', {
+        templateUrl: 'app/views/new_class.html',
+        controller: 'NewClassCtrl',
+        controllerAs: 'new_class'
+      })
       .otherwise({
         redirectTo: '/'
       });

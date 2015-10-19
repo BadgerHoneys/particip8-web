@@ -1,1 +1,69 @@
-{{ id }}
+<div class="row">
+	<div class="banner col-md-4 col-md-offset-4">
+		{{ name }}
+	</div>
+</div>
+
+<div class="row">
+	<div class="class_header col-md-4">
+		Evaluations
+	</div>
+
+	<div class="col-md-2">
+		<button class="class_btn" ng-click="newEvaluation()">
+			+New Eval
+		</button>
+	</div>
+
+	<div class="class_header col-md-4">
+		Students
+	</div>
+
+	<div class="col-md-2">
+		<button class="class_btn" ng-click="makeReport()">
+			Make Report
+		</button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="class_section">
+			<div class="class_item" ng-repeat="eval in evaluations">
+				<div class="item_title">
+					{{ eval.name }}
+				</div>
+
+				<div class="item_info">
+					{{ eval.scale }}
+				</div>
+
+				<div class="item_label">
+					Scale:
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="class_section">
+			<div class="class_item" ng-repeat="student in students">
+				<div class="item_title">
+					{{ student.name }}
+				</div>
+
+				<div class="item_info">
+					{{ student.average }}/100
+				</div>
+
+				<div class="item_label">
+					GPA:
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>

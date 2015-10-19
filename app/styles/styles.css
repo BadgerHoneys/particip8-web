@@ -3,6 +3,10 @@
   src:url('../fonts/Harabara Mais Demo.otf');
 }
 
+html, body{
+	height:100%;
+}
+
 .header {
 	min-height:60px;
 	border-bottom:2px solid #cccccc;
@@ -26,7 +30,7 @@
 	text-align:center;
 	font-size:40px;
 	font-color:#444444;
-	font-family:harabara;
+	font-family:harabara, sans-serif;
 }
 
 .footer {
@@ -34,6 +38,7 @@
 	padding:10px 0px;
 	color:#444444;
 	font-size:14px;
+	margin-top:20px;
 }
 
 .footer a {
@@ -87,7 +92,7 @@
 	font-size:24px;
 	font-family:Arial, sans-serif;
 	height:44px;
-	color:#444444;
+	color:#787878;
 	padding:2px 8px;
 	margin-top:15px;
 	border-radius:7px;
@@ -99,37 +104,127 @@
 	margin-top:15px;
 	font-size:36px;
 	border:1px solid #cccccc;
-	font-family:harabara;
+	font-family:harabara, sans-serif;
 	color:#ffffff;
 	text-align:center;
 	border-radius:7px;
 	background: linear-gradient(#f4711a, #ed8038);
 }
 
-.class_overview{
+.login_btn:hover{
+	background:#ed8038;
+}
+
+.classes_overview{
 	border-radius:7px;
 	border:2px solid #f4711a;
 	padding:10px 15px;
 	margin-top:5px;
 	font-family:Arial, sans-serif;
+	cursor:pointer;
 }
 
-.class_overview .class_name{
+.classes_overview:hover{
+	background-color:#f7f7f7;
+}
+
+.classes_overview .class_name{
 	color:#f4711a;
 	font-size:36px;
 }
 
-.class_overview .class_info{
-	color:#444444;
+.classes_overview .class_label{
+	color:#787878;
+	font-size:20px;
+	margin-top:16px;
+	text-align:right;
+}
+
+.classes_overview .class_info{
+	color:#787878;
 	font-size:20px;
 	margin-top:16px;
 }
 
-.class_overview .class_action{
+.classes_overview .class_action{
 	color:#0090ff;
 	font-size:18px;
 	float:right;
 	display:block;
 }
 
+.info{
+	color:#444444;
+	font-size:16px;
+}
 
+.class_header{
+	color:#f4711a;
+	font-family:harabara, sans-serif;
+	font-size:36px;
+}
+
+.class_section{
+	border:2px solid #f4711a;
+	border-radius:7px;
+	min-height:250px;
+	max-height:calc(100vh - 251px);
+	overflow:scroll;
+}
+
+.class_btn{
+	margin-top:4px;
+	width:100%;
+	right:15px;
+	background: linear-gradient(#0090ff, #38a0f1);
+	border:1px solid #cccccc;
+	font-family:harabara, sans-serif;
+	font-size:24px;
+	line-height:32px;
+	border-radius:7px;
+	color:#ffffff;
+}
+
+.class_btn:hover{
+	background:#38a0f1;
+}
+
+.class_item{
+	margin:5px;
+	border:2px solid #cccccc;
+	border-radius:5px;
+	padding:5px;
+	height:60px;
+	cursor:pointer;
+}
+
+.class_item:hover{
+	background-color:#f7f7f7;
+}
+
+.class_item .item_title{
+	color:#787878;
+	font-family:harabara, sans-serif;
+	font-size:28px;
+	display:inline;
+}
+
+.class_item .item_label{
+	color:#444444;
+	font-family:Arial, sans-serif;
+	font-size:20px;
+	margin-top:4px;
+	display:inline;
+	float:right;
+	padding-right:10px;
+}
+
+.class_item .item_info{
+	width:80px;
+	color:#444444;
+	font-family:Arial, sans-serif;
+	margin-top:4px;
+	font-size:20px;
+	display:inline;
+	float:right;
+}
