@@ -4,32 +4,21 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="class_header col-md-4">
-		Evaluations
-	</div>
-
-	<div class="col-md-2">
-		<button class="class_btn" ng-click="newEvaluation()">
-			+New Eval
-		</button>
-	</div>
-
-	<div class="class_header col-md-4">
-		Students
-	</div>
-
-	<div class="col-md-2">
-		<button class="class_btn" ng-click="makeReport()">
-			Make Report
-		</button>
-	</div>
-</div>
 
 <div class="row">
 	<div class="col-md-6">
+		<div class="row">
+			<div class="class_header col-md-6">
+				Evaluations
+			</div>
+
+			<button class="class_btn col-md-6" ng-click="newEvaluation()">
+				+ New Evaluation
+			</button>
+		</div>
+
 		<div class="class_section">
-			<div class="class_item" ng-repeat="eval in evaluations">
+			<div class="class_item" ng-repeat="eval in evaluations" ng-click="editEvaluation(eval)">
 				<div class="item_title">
 					{{ eval.name }}
 				</div>
@@ -48,6 +37,12 @@
 	</div>
 
 	<div class="col-md-6">
+		<div class="row">
+			<div class="class_header col-md-6">
+				Students
+			</div>
+		</div>
+
 		<div class="class_section">
 			<div class="class_item" ng-repeat="student in students">
 				<div class="item_title">

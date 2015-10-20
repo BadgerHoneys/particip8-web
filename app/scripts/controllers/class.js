@@ -3,9 +3,8 @@
 
     angular
         .module('particip8WebApp')
-        .controller('ClassCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+        .controller('ClassCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
 
-            console.log($routeParams.id);
             $scope.id = $routeParams.id;
 
 
@@ -15,14 +14,17 @@
             // fill these from evals service request
             $scope.evaluations = [
             {
+                id: 1,
                 name: "Some eval",
                 scale: "3"
             },
             {
+                id: 2,
                 name: "Another eval",
                 scale: "100"
             },
             {
+                id: 3,
                 name: "Attendance",
                 scale: "1"
             }
@@ -46,6 +48,21 @@
             // check if the class exists
             // build out the array with class data
             // otherwise throw 404
+
+            $scope.makeReport = function() {
+                // add a service request to a domain level function
+                // create an excel sheet or something?
+            }
+
+            $scope.newEvaluation = function() {
+                // how does it know which class these should be related to?
+                // probably through cookies or something
+                $location.path('/new_evaluation/' + $scope.id);
+            }
+
+            $scope.editEvaluation = function(evaluation) {
+                $location.path('/edit_evaluation/' + $scope.id + '/' + evaluation.id);
+            }
 
         }]);
 })();

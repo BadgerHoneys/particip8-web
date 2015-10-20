@@ -11,7 +11,7 @@
         	}
 
             $scope.login = function () {
-            	$location.path('/home');
+            	$location.path('/classes');
             };
 
         }]);

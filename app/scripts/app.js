@@ -24,10 +24,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/home',{
-        templateUrl: '/app/views/home.html',
-        controller: 'HomeCtrl',
-        controllerAs: 'home'
+      .when('/classes',{
+        templateUrl: '/app/views/classes.html',
+        controller: 'ClassesCtrl',
+        controllerAs: 'classes'
       })
       .when('/about', {
         templateUrl: '/app/views/about.html',
@@ -54,10 +54,25 @@ angular
         controller: 'ClassCtrl',
         controllerAs: 'class'
       })
-      .when('/new_class/', {
-        templateUrl: 'app/views/new_class.html',
-        controller: 'NewClassCtrl',
-        controllerAs: 'new_class'
+      .when('/manage_class/', {
+        templateUrl: 'app/views/manage_class.html',
+        controller: 'ManageClassCtrl',
+        controllerAs: 'manage_class'
+      })
+      .when('/new_evaluation/:class_id', {
+        templateUrl: 'app/views/new_evaluation.html',
+        controller: 'NewEvaluationCtrl',
+        controllerAs: 'new_evaluation'
+      })
+      .when('/edit_evaluation/:class_id/:eval_id', {
+        templateUrl: 'app/views/edit_evaluation.html',
+        controller: 'EditEvaluationCtrl',
+        controllerAs: 'edit_evaluation'
+      })
+      .when('/report', {
+        templateUrl: 'app/views/report.html',
+        controller: 'ReportCtrl',
+        controllerAs: 'report'
       })
       .otherwise({
         redirectTo: '/'
