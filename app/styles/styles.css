@@ -238,3 +238,49 @@ html, body{
 	display:inline;
 	float:right;
 }
+.eval_label{
+	color:#444444;
+	font-size:28px;
+	font-family:harabara, sans-serif;
+}
+
+.eval_input{
+	font-size:24px;
+	font-family:Arial, sans-serif;
+	height:44px;
+	color:#787878;
+	padding:2px 8px;
+	width:100%;
+	border-radius:7px;
+	border:2px solid #f4711a;
+}
+
+.eval_scale{
+	border-radius:7px;
+	border:2px solid #f4711a;
+	padding:5px;
+	margin-bottom:15px;
+}
+
+.eval_scale .scale_option{
+	border-radius:7px;
+	border:2px solid #cccccc;
+	min-height:60px;
+	margin:5px 0;
+	padding:5px;
+}
+
+.eval_btn{
+	margin-top:4px;
+	width:100%;
+	background: linear-gradient(#0090ff, #38a0f1);
+	border:1px solid #cccccc;
+	font-family:harabara, sans-serif;
+	font-size:28px;
+	line-height:36px;
+	border-radius:7px;
+	color:#ffffff;
+	margin-top:10px;
+}
+
+
