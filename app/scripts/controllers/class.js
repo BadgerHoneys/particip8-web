@@ -3,7 +3,7 @@
 
     angular
         .module('particip8WebApp')
-        .controller('ClassCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
+        .controller('ClassCtrl', ['$scope', '$location', '$routeParams', 'Evaluations', 'Students', function ($scope, $location, $routeParams, Evaluations, Students) {
 
             $scope.id = $routeParams.id;
 
@@ -11,24 +11,48 @@
             // fill these from class's service request
             $scope.name = 'History';
 
-            // fill these from evals service request
-            $scope.evaluations = [
-            {
-                id: 1,
-                name: "Some eval",
-                scale: "3"
-            },
-            {
-                id: 2,
-                name: "Another eval",
-                scale: "100"
-            },
-            {
-                id: 3,
-                name: "Attendance",
-                scale: "1"
-            }
-            ];
+
+
+            $scope.evaluations = [];
+
+            // get all classes from Classes resource and format response using Array.map method
+            Evaluations.query(function(data){
+                // This needs to be refactored with a new service URL
+                var evals_data = [];
+                for( var i = 0; i < data.length; i++ ){
+                    // TODO: Change the teacher_id == 2 to check the session cookies for teacher_id
+                    if( data[i].school_class_id == $scope.id) {
+                        evals_data.push(data[i]);
+                    }
+                }
+                
+                $scope.evaluations = evals_data.map(function(obj){
+
+                    // ask paul to add the ability to get a single rating type's scale
+                    var eval_scale = obj.rating_type_id;
+
+                    return {
+                        id: obj.id,
+                        name: obj.name,
+                        scale: eval_scale
+                    }
+
+                }) 
+            });
+
+            $scope.students = [];
+
+            // get all classes from Classes resource and format response using Array.map method
+            Students.query(function(data){
+                $scope.students = data.map(function(obj){
+                    return {
+                        id: obj.id,
+                        name: obj.name,
+                        email: obj.email
+                    }
+
+                }) 
+            });
 
             $scope.students = [
             {

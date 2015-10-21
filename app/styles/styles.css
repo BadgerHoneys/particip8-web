@@ -229,7 +229,7 @@ html, body{
 	padding-right:10px;
 }
 
-.class_item .item_info{
+.class_item .item_info_sm{
 	width:80px;
 	color:#444444;
 	font-family:Arial, sans-serif;
@@ -238,6 +238,16 @@ html, body{
 	display:inline;
 	float:right;
 }
+
+.class_item .item_info_lg{
+	color:#444444;
+	font-family:Arial, sans-serif;
+	margin-top:4px;
+	font-size:20px;
+	display:inline;
+	float:right;
+}
+
 .eval_label{
 	color:#444444;
 	font-size:28px;
@@ -281,6 +291,27 @@ html, body{
 	border-radius:7px;
 	color:#ffffff;
 	margin-top:10px;
+}
+
+.eval_btn:hover{
+	background:#0874c8;
+}
+
+.eval_delete_btn{
+	margin-top:4px;
+	width:100%;
+	background: linear-gradient(#d11919, #ba1818);
+	border:1px solid #cccccc;
+	font-family:harabara, sans-serif;
+	font-size:28px;
+	line-height:36px;
+	border-radius:7px;
+	color:#ffffff;
+	margin-top:10px;
+}
+
+.eval_delete_btn:hover{
+	background:#8a0101;
 }
 
 

@@ -3,35 +3,62 @@
 
     angular
         .module('particip8WebApp')
-        .controller('ManageClassCtrl', ['$scope', '$location', 'Classes', function ($scope, $location, Classes) {
-            // mock data
-            $scope.my_classes = [
-            {
-                id: 1,
-                name: "History"
-            },
-            {
-                id: 2,
-                name: "Math"
-            },
-            {
-                id: 3,
-                name: "Science"
-            }];
+        .controller('ManageClassCtrl', ['$scope', '$location', '$routeParams', 'EditClass', 'Classes', function ($scope, $location, $routeParams, EditClass, Classes) {
+            $scope.teacher_id = $routeParams.id;
 
-            $scope.all_classes = [
-            {
-            	id: 4,
-            	name: "Economics"
-            },
-            {
-            	id: 5,
-            	name: "Comp Sci"
-            }]
+            $scope.my_classes = [];
+            $scope.all_classes = [];
 
-            $scope.removeClass = function(classroom, teacher) {
-            	// remove the link between this teacher and given classroom
-            	// with a service request
+            // TODO: Change this to only get classes related to this teacher's school
+            Classes.query(function(data){
+                var my_class_data = [];
+                var all_class_data = [];
+
+                for( var i = 0; i < data.length; i++ ){
+                    // TODO: Change the teacher_id == 2 to check the session cookies for teacher_id
+                    if( data[i].teacher_id == 2) {
+                        my_class_data.push(data[i]);
+                    } else {        // TODO: Also change this to be data[i].teacher_id == null when that is enabled.
+                        all_class_data.push(data[i]);
+                    }
+                }
+                
+                $scope.my_classes = my_class_data.map(function(obj){
+                    return {
+                        id: obj.id,
+                        school_id: obj.school_id,
+                        teacher_id: obj.teacher_id,
+                        start_time: obj.start_time,
+                        end_time: obj.end_time,
+                        name: obj.name
+                    }
+
+                })
+
+                $scope.all_classes = all_class_data.map(function(obj){
+                    return {
+                        id: obj.id,
+                        school_id: obj.school_id,
+                        teacher_id: obj.teacher_id,
+                        start_time: obj.start_time,
+                        end_time: obj.end_time,
+                        name: obj.name
+                    }
+
+                }) 
+            });
+
+
+            $scope.removeClass = function(classroom) {
+                EditClass.post({}, {
+                    "school_class": { 
+                        school_id:  [classroom.school_id.toString()],
+                        teacher_id: ["null"],
+                        name:       [classroom.name],
+                        start_time: [classroom.start_time],
+                        end_time:   [classroom.end_time]
+                    }
+                })
 
             	// Get the index of our class, to remove it from the array
             	var index = $scope.my_classes.indexOf(classroom);
@@ -46,9 +73,16 @@
             	$location.path('/manage_class/');
             }
 
-            $scope.addClass = function(classroom, teacher) {
-            	// add the link between the teacher and classroom
-            	// with a service request
+            $scope.addClass = function(classroom) {
+                EditClass.post({}, {
+                    "school_class": {
+                        school_id:  [classroom.school_id.toString()],
+                        teacher_id: [$scope.teacher_id],
+                        name:       [classroom.name],
+                        start_time: [classroom.start_time],
+                        end_time:   [classroom.end_time]
+                    }
+                })
 
             	// Get the index of the class to remove it from the all class list
             	var index = $scope.all_classes.indexOf(classroom);
