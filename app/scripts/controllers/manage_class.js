@@ -4,7 +4,7 @@
     angular
         .module('particip8WebApp')
         .controller('ManageClassCtrl', ['$scope', '$location', '$routeParams', 'EditClass', 'Classes', function ($scope, $location, $routeParams, EditClass, Classes) {
-            $scope.teacher_id = $routeParams.id;
+            var teacher_id = $routeParams.id;
 
             $scope.my_classes = [];
             $scope.all_classes = [];
@@ -50,14 +50,15 @@
 
 
             $scope.removeClass = function(classroom) {
-                EditClass.post({}, {
+                EditClass.put({}, {
                     "school_class": { 
                         school_id:  [classroom.school_id.toString()],
                         teacher_id: ["null"],
                         name:       [classroom.name],
                         start_time: [classroom.start_time],
                         end_time:   [classroom.end_time]
-                    }
+                    },
+                    id: classroom.id
                 })
 
             	// Get the index of our class, to remove it from the array
@@ -74,14 +75,15 @@
             }
 
             $scope.addClass = function(classroom) {
-                EditClass.post({}, {
+                EditClass.put({}, {
                     "school_class": {
                         school_id:  [classroom.school_id.toString()],
-                        teacher_id: [$scope.teacher_id],
+                        teacher_id: [teacher_id],
                         name:       [classroom.name],
                         start_time: [classroom.start_time],
                         end_time:   [classroom.end_time]
-                    }
+                    },
+                    id: classroom.id
                 })
 
             	// Get the index of the class to remove it from the all class list

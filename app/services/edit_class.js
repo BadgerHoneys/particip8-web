@@ -6,11 +6,11 @@
         .factory('EditClass', EditClassFactory);
 
     function EditClassFactory($resource) {
-        return $resource('http://localhost:3000/school_classes/:classInfo', 
-        	{},
+        return $resource('http://localhost:3000/school_classes/:id', 
+        	{id: '@id'},
         	{ 
-        		post: {
-        			method:'POST',
+        		put: {
+        			method:'PUT',
                     isArray: true
                 }
         	});
