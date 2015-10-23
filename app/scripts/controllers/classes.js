@@ -3,12 +3,16 @@
 
     angular
         .module('particip8WebApp')
-        .controller('ClassesCtrl', ['$scope', '$location', '$cookies', 'Classes', function ($scope, $location, $cookies, Classes) {
+        .controller('ClassesCtrl', ['$scope', '$location', '$cookies', '$http', 'Classes', function ($scope, $location, $cookies, $http, Classes) {
             $scope.classes = [];
 
             console.log("test");
 
             var teacher_id = $cookies.get("teacher_id");
+
+
+            // TODO: remove this and globalize it
+            $http.defaults.headers.common['token_id'] = $cookies.get("token_id");
 
             // get all classes from Classes resource and format response using Array.map method
             Classes.query(function(data){
