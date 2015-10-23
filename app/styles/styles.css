@@ -24,6 +24,7 @@ html, body{
 	padding-top:24px;
 	padding-bottom:10px;
 	color:#444444;
+	cursor:pointer;
 }
 
 .header .nav-item:hover{

@@ -39,5 +39,9 @@
 
             };
 
+            $scope.logout = function(){
+                console.log("logging out");
+            }
+
         }]);
 })();

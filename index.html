@@ -11,7 +11,7 @@
   </head>
   <body ng-app="particip8WebApp">
 
-    <div class="header">
+    <div class="header" ng-controller="MainCtrl">
       <div class="container">
         <a ng-href="#/classes">
           <div class="logo">
@@ -19,13 +19,18 @@
           </div>
         </a>
 
-        <a class="nav-item" href="/#/classes">
-            My Classes
+        <a class="nav-item" ng-click="logout()">
+            Logout
         </a>
 
         <a class="nav-item" href="/#/report">
             View Reports
         </a>
+        
+        <a class="nav-item" href="/#/classes">
+            My Classes
+        </a>
+        
       </div>
     </div>
 
@@ -62,6 +67,7 @@
     <script src="app/services/users.js"></script>
 
     <script src="app/scripts/controllers/main.js"></script>
+    <script src="app/scripts/controllers/header.js"></script>
     <script src="app/scripts/controllers/classes.js"></script>    
     <script src="app/scripts/controllers/about.js"></script>
     <script src="app/scripts/controllers/help.js"></script>
