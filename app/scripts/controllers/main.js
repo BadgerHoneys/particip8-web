@@ -10,7 +10,9 @@
         		password: ""
         	}
 
-            var user_id = $cookies.get("user_id")
+            var user_id = $cookies.get("user_id");
+
+            $cookies.remove("token_id");
 
             //TODO: replace this check with a POST providing the session_token
             if(user_id){
@@ -23,11 +25,16 @@
             }
 
             $scope.login = function () {        
-                Sessions.save($scope.user, function(res){
-                   console.log("response...");
-                   console.log(res);
 
-                   //$location.path("/classes");
+                Sessions.save($scope.user, function(res){
+                    console.log("response...");
+                    console.log(res);
+
+
+                    // replace the 2nd argument "token" with the token id generated from logging the user in.
+                    $cookies.put("token_id", res["auth_token"]);
+
+                    $location.path("/classes");
 
                 },function(err){
                     alert("There was a 500 error when authenticating with the server...");
