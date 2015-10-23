@@ -40,7 +40,7 @@
             };
 
             $scope.logout = function(){
-                console.log("logging out");
+                //console.log("logging out");
             }
 
         }]);
