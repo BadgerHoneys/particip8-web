@@ -6,6 +6,8 @@
         .controller('ClassesCtrl', ['$scope', '$location', '$cookies', 'Classes', function ($scope, $location, $cookies, Classes) {
             $scope.classes = [];
 
+            console.log("test");
+
             var teacher_id = $cookies.get("teacher_id");
 
             // get all classes from Classes resource and format response using Array.map method

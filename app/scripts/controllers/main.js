@@ -3,7 +3,7 @@
 
     angular
         .module('particip8WebApp')
-        .controller('MainCtrl', ['$scope', '$cookies', '$location', 'Users', function ($scope, $cookies, $location, Users) {
+        .controller('MainCtrl', ['$scope', '$cookies', '$location', 'Sessions', function ($scope, $cookies, $location, Sessions) {
 
         	$scope.user = {
         		email: "",
@@ -23,20 +23,16 @@
             }
 
             $scope.login = function () {        
-                Users.authenticate($scope.user, function(user){
-                    if(user.id){
-                        //write the cookie
-                        $cookies.put("user_id", user.id)
+                Sessions.save($scope.user, function(res){
+                   console.log("response...");
+                   console.log(res);
 
-                        //TODO: use this new url when app.js implemented
-                        //$location.path("/classes/" + user_id);
-                        //Also, refactor into helper method
-                        $location.path("/classes");
-                    }
+                   //$location.path("/classes");
+
                 },function(err){
-                    alert("There was an error with authentication\nPlease provide a valid email and password");
+                    alert("There was a 500 error when authenticating with the server...");
+                    console.log(err);
                 });
-
             };
 
             $scope.logout = function(){
