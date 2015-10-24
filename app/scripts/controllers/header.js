@@ -14,7 +14,6 @@
                 console.log("user_id cookie cleared")
 
                 $location.path("/");
-
             }
 
         }]);

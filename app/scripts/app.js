@@ -77,6 +77,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
       $httpProvider.defaults.useXDomain = true;
       // change this when authentication is added (below)
       $httpProvider.defaults.withCredentials = false;                       // change this later!!!!!!!!!!!!
@@ -84,4 +85,4 @@ angular
       delete $httpProvider.defaults.headers.common["X-Requested-With"];
       $httpProvider.defaults.headers.common["Accept"] = "application/json";
       $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
-  });
+    });

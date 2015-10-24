@@ -3,16 +3,13 @@
 
     angular
         .module('particip8WebApp')
-        .controller('ClassesCtrl', ['$scope', '$location', '$cookies', '$http', 'Classes', function ($scope, $location, $cookies, $http, Classes) {
+        .controller('ClassesCtrl', ['$scope', '$location', '$cookies', '$http', 'Classes',
+            function ($scope, $location, $cookies, $http, Classes) {
+            
+            //replicate this across all controllers
+            $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
+
             $scope.classes = [];
-
-            console.log("test");
-
-            var teacher_id = $cookies.get("teacher_id");
-
-
-            // TODO: remove this and globalize it
-            $http.defaults.headers.common['token_id'] = $cookies.get("token_id");
 
             // get all classes from Classes resource and format response using Array.map method
             Classes.query(function(data){
@@ -20,9 +17,8 @@
                 var teacher_data = [];
                 for( var i = 0; i < data.length; i++ ){
                     // TODO: Change the teacher_id == 2 to check the session cookies for teacher_id
-                    if( data[i].teacher_id == 2) {
+                    if( data[i].teacher_id == 5) {
                         teacher_data.push(data[i]);
-
                     }
                 }
                 
