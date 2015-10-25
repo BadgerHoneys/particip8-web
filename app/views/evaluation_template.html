@@ -18,10 +18,16 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<label for="EvaluationTemplateScale" class="eval_label">Rating Scale</label>
-			<input type="text" id="EvaluationTemplateScale" name="scale" class="eval_input"
-			ng-model="eval.scale" placeholder="Highest possible score" />
+			<select id="EvaluationTemplateScale" name="scale" class="eval_input"
+			ng-model="eval.scale">
+				<option ng-repeat="ratingType in ratingTypes" value="ratingType.id">
+					{{ratingType.name}}
+				</option>
+			</select>
+
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 			<button type="submit" class="eval_btn" ng-if="!edit" ng-click="createEvaluation(eval)">

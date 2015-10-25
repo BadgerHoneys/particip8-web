@@ -3,8 +3,8 @@
 
     angular
         .module('particip8WebApp')
-        .controller('EvaluationTemplateCtrl', ['$scope', '$location', '$cookies', '$http', '$routeParams', 
-            function ($scope, $location, $cookies, $http, $routeParams) {
+        .controller('EvaluationTemplateCtrl', ['$scope', '$location', '$cookies', '$http', '$routeParams', 'RatingTypes',
+            function ($scope, $location, $cookies, $http, $routeParams, RatingTypes) {
             
             //TODO: Find out how to globalize this
             //replicate this across all controllers
@@ -26,10 +26,16 @@
                 scale: ""
             }
 
+            $scope.ratingTypes = [];
+
+            RatingTypes.query(function(res){
+                $scope.ratingTypes = res;
+            }, function(err){
+                console.log("A request resulted in an error...");
+                console.log(err);
+            })
 
             //if we are in edit mode, then make a request to the the evaluation template
-
-
 
             $scope.createEvaluation = function() {
                 // build out the array from the evaluation template's form
