@@ -15,13 +15,26 @@
 			ng-model="eval.name" placeholder="Evaluation Template's Name" autofocus />			
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label for="EvaluationTemplateType" class="eval_label">Evaluation Type</label>
+			<select id="EvaluationTemplateType" name="evaluation_type" class="eval_input"
+			ng-model="eval.evaluation_type_id">
+				<option ng-repeat="evaluationType in evaluationTypes" value="{{evaluationType.id}}">
+					{{evaluationType.name}}
+				</option>
+			</select>
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<label for="EvaluationTemplateScale" class="eval_label">Rating Scale</label>
 			<select id="EvaluationTemplateScale" name="scale" class="eval_input"
-			ng-model="eval.scale">
-				<option ng-repeat="ratingType in ratingTypes" value="ratingType.id">
-					{{ratingType.name}}
+			ng-model="eval.scale_id">
+				<option ng-repeat="ratingType in ratingTypes" value="{{ratingType.id}}">
+					{{ratingType.name}} [on a scale of {{ratingType.scale}}]
 				</option>
 			</select>
 
@@ -38,4 +51,8 @@
 			</button>
 		</div>
 	</div>
+
+	<p>Name: {{eval.name}}</p>
+	<p>EvaluationType: {{eval.evaluation_type_id}}</p>
+	<p>Scale: {{eval.scale_id}}</p>
 </form>
