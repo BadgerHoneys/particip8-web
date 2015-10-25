@@ -42,17 +42,12 @@
             // how does it know which class these should be related to?
             // probably through cookies or something
             var currentPath = $location.path();
-            console.log("current path: " + currentPath);
-            var newPath = currentPath + '/evaluation_template'
-            console.log("new path: " + newPath);
-
             $location.path(currentPath + '/evaluation_template');
         }
 
         $scope.editEvaluation = function(evaluation) {
-            $location.path('/edit_evaluation/' + $scope.id + '/' + evaluation.id);
+            var currentPath = $location.path();
+            $location.path(currentPath + '/evaluation_template/' + evaluation.id);
         }
-
     }
-
 })();

@@ -33,16 +33,16 @@ angular
         templateUrl: 'app/views/evaluation_template.html',
         controller: 'EvaluationTemplateCtrl',
         controllerAs: 'evaluation_template'
+      })
+      .when('/class/:class_id/evaluation_template/:evaluation_template_id', {
+        templateUrl: 'app/views/evaluation_template.html',
+        controller: 'EvaluationTemplateCtrl',
+        controllerAs: 'evaluation_template'
       })      
       .when('/class/:id', {
         templateUrl: 'app/views/class.html',
         controller: 'ClassCtrl',
         controllerAs: 'class'
-      })
-      .when('/edit_evaluation/:class_id/:eval_id', {
-        templateUrl: 'app/views/edit_evaluation.html',
-        controller: 'EditEvaluationCtrl',
-        controllerAs: 'edit_evaluation'
       })
       .when('/about', {
         templateUrl: '/app/views/about.html',
