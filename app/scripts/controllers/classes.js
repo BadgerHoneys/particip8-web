@@ -6,22 +6,15 @@
         .controller('ClassesCtrl', ['$scope', '$location', '$cookies', '$http', 'Classes',
             function ($scope, $location, $cookies, $http, Classes) {
             
+            //TODO: Find out how to globalize this
             //replicate this across all controllers
             $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
 
             $scope.classes = [];
 
             // get all classes from Classes resource and format response using Array.map method
-            Classes.query(function(data){
-                // This needs to be refactored with a new service URL
-                var teacher_data = [];
-                for( var i = 0; i < data.length; i++ ){
-                    // TODO: Change the teacher_id == 2 to check the session cookies for teacher_id
-                    if( data[i].teacher_id == 5) {
-                        teacher_data.push(data[i]);
-                    }
-                }
-                
+            Classes.query(function(teacher_data){
+
                 $scope.classes = teacher_data.map(function(obj){
 
                     var start_date = new Date(obj.start_time);
@@ -49,11 +42,7 @@
                         end_time: end_hours,  // TRANSLATE THIS TO A READABLE TIME
                         student_count: 20// need to set up the student_count
                     }
-
-                }) 
-                // console.log(teacher_data)
-                // console.log($scope.classes);
- 
+                })
             });
 
             $scope.manageClass = function(classroom)

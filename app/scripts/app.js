@@ -29,6 +29,11 @@ angular
         controller: 'ClassesCtrl',
         controllerAs: 'classes'
       })
+      .when('/class/:id', {
+        templateUrl: 'app/views/class.html',
+        controller: 'ClassCtrl',
+        controllerAs: 'class'
+      })
       .when('/about', {
         templateUrl: '/app/views/about.html',
         controller: 'AboutCtrl',
@@ -48,11 +53,6 @@ angular
         templateUrl: 'app/views/help.html',
         controller: 'HelpCtrl',
         controllerAs: 'help'
-      })
-      .when('/class/:id', {
-        templateUrl: 'app/views/class.html',
-        controller: 'ClassCtrl',
-        controllerAs: 'class'
       })
       .when('/manage_class/', {
         templateUrl: 'app/views/manage_class.html',
