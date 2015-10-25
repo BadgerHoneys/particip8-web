@@ -29,10 +29,20 @@ angular
         controller: 'ClassesCtrl',
         controllerAs: 'classes'
       })
+      .when('/class/:class_id/evaluation_template', {
+        templateUrl: 'app/views/evaluation_template.html',
+        controller: 'EvaluationTemplateCtrl',
+        controllerAs: 'evaluation_template'
+      })      
       .when('/class/:id', {
         templateUrl: 'app/views/class.html',
         controller: 'ClassCtrl',
         controllerAs: 'class'
+      })
+      .when('/edit_evaluation/:class_id/:eval_id', {
+        templateUrl: 'app/views/edit_evaluation.html',
+        controller: 'EditEvaluationCtrl',
+        controllerAs: 'edit_evaluation'
       })
       .when('/about', {
         templateUrl: '/app/views/about.html',
@@ -58,16 +68,6 @@ angular
         templateUrl: 'app/views/manage_class.html',
         controller: 'ManageClassCtrl',
         controllerAs: 'manage_class'
-      })
-      .when('/new_evaluation/:class_id', {
-        templateUrl: 'app/views/new_evaluation.html',
-        controller: 'NewEvaluationCtrl',
-        controllerAs: 'new_evaluation'
-      })
-      .when('/edit_evaluation/:class_id/:eval_id', {
-        templateUrl: 'app/views/edit_evaluation.html',
-        controller: 'EditEvaluationCtrl',
-        controllerAs: 'edit_evaluation'
       })
       .when('/report', {
         templateUrl: 'app/views/report.html',

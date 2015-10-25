@@ -3,68 +3,31 @@
 
     angular
         .module('particip8WebApp')
-        .controller('ClassCtrl', ['Classes', '$scope', '$location', '$routeParams', ClassCtrl]);
+        .controller('ClassCtrl', ['Classes', '$scope', '$location', '$cookies', '$http', '$routeParams', 
+            ClassCtrl]);
 
-    function ClassCtrl(Classes, $scope, $location, $routeParams){
+    function ClassCtrl(Classes, $scope, $location, $cookies, $http, $routeParams){
+
+        //TODO: Find out how to globalize this
+        //replicate this across all controllers
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
 
         $scope.school_classes_id = $routeParams.id;
 
-        $scope.class_name = "test";
+        $scope.class_name = "";
         $scope.evaluations_templates = [];
         $scope.students = [];
 
-        console.log("School Classes Id: " + $scope.school_classes_id)
-
-
-
-
         //hit /school_classes/:id and get class, evaluation templates, and student information
         Classes.get({id: $scope.school_classes_id},function(res){
-            console.log(res);
-
             $scope.name = res.name;
-
-            console.log("setting this.evaluation_templates...");
             $scope.evaluation_templates = res.evaluation_templates;
-
-            console.log("setting this.students...");
             $scope.students = res.students;
-
         }, function(err){
             console.log("A request resulted in an error...");
             console.log(err);
         });
 
-
-        // get all classes from Classes resource and format response using Array.map method
-    /*
-        Evaluations.query(function(data){
-            // This needs to be refactored with a new service URL
-            var evals_data = [];
-            for( var i = 0; i < data.length; i++ ){
-                // TODO: Change the teacher_id == 2 to check the session cookies for teacher_id
-                if( data[i].school_class_id == $scope.id) {
-                    evals_data.push(data[i]);
-                }
-            }
-            
-            $scope.evaluations = evals_data.map(function(obj){
-
-                // ask paul to add the ability to get a single rating type's scale
-                var eval_scale = obj.rating_type_id;
-
-                return {
-                    id: obj.id,
-                    name: obj.name,
-                    scale: eval_scale
-                }
-
-            }) 
-        });
-    */
-
-
-/*
         // do a GET on the class here
         // check if the class exists
         // build out the array with class data
@@ -78,14 +41,17 @@
         $scope.newEvaluation = function() {
             // how does it know which class these should be related to?
             // probably through cookies or something
-            $location.path('/new_evaluation/' + $scope.id);
+            var currentPath = $location.path();
+            console.log("current path: " + currentPath);
+            var newPath = currentPath + '/evaluation_template'
+            console.log("new path: " + newPath);
+
+            $location.path(currentPath + '/evaluation_template');
         }
 
         $scope.editEvaluation = function(evaluation) {
             $location.path('/edit_evaluation/' + $scope.id + '/' + evaluation.id);
         }
-
-*/
 
     }
 

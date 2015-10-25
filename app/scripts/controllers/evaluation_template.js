@@ -3,7 +3,18 @@
 
     angular
         .module('particip8WebApp')
-        .controller('NewEvaluationCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
+        .controller('EvaluationTemplateCtrl', ['$scope', '$location', '$cookies', '$http', '$routeParams', 
+            function ($scope, $location, $cookies, $http, $routeParams) {
+            
+            //TODO: Find out how to globalize this
+            //replicate this across all controllers
+            $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
+
+            console.log("evaluation template controller entered");
+
+            console.log("class id: " + $routeParams.class_id)
+
+
             $scope.class_id = $routeParams.class_id;
             // maybe get the class from this routeParam.id so that we can display the class's name
 
