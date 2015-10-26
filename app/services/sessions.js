@@ -6,6 +6,6 @@
         .factory('Sessions', SessionsFactory);
 
     function SessionsFactory($resource) {
-        return $resource('tcp://localhost:3000/sessions', {}, {});
+        return $resource('http://localhost:3000/sessions', {}, {});
     };
 })();
