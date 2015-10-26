@@ -6,6 +6,8 @@
         .factory('EvaluationTemplates', EvaluationTemplatesFactory);
 
     function EvaluationTemplatesFactory($resource) {
-        return $resource('http://localhost:3000/evaluation_templates/:id', {}, {});
+        return $resource('http://localhost:3000/evaluation_templates/:id', {}, {
+        	'update': {method: 'PUT'}
+        });
     };
 })();

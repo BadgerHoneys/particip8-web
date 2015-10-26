@@ -13,7 +13,7 @@
             $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
 
             // Determine if we are going to be editing the evaluation template
-            if($scope.evaluation_template_id){
+            if($routeParams.evaluation_template_id){
                 console.log("editing!!!");
 
                 //TODO: Find a better way to do this!!
@@ -22,10 +22,11 @@
             }
 
             $scope.evaluation_template = {
+                evaluation_template_id: "",
+                school_class_id: "",
                 name: "",
                 evaluation_type_id: "",
-                rating_type_id: "",
-                school_class_id: ""
+                rating_type_id: ""
             }
 
             $scope.evaluationTypes = [];
@@ -54,13 +55,26 @@
                     console.log("success");
                     $location.path("/class/" + $routeParams.class_id);
                 }, function(err){
-                    console.log("error: " + err)
+                    console.log("A request resulted in an error...");
+                    console.log(err);
                 });
             }
 
-            $scope.editEvaluation = function(){
+            $scope.editEvaluation = function(evaluation_template){
                 //edit the evaluation
                 console.log("editing the evaluation");
+
+                //TODO: refactor this --why arent we able to set $scope.school_class_id at page load time?
+                evaluation_template.school_class_id = $routeParams.class_id
+
+                EvaluationTemplates.update({id:$routeParams.evaluation_template_id},
+                    evaluation_template, function(res){
+                    console.log("success");
+                    $location.path("/class/" + $routeParams.class_id);
+                }, function(err){
+                    console.log("A request resulted in an error...");
+                    console.log(err);
+                });
             }
 
         }]);
