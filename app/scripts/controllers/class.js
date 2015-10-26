@@ -22,9 +22,12 @@
         Classes.get({id: $scope.school_classes_id},function(res){
             $scope.name = res.name;
             $scope.evaluation_templates = res.evaluation_templates;
+            console.log("evaluation template...");
+            console.log($scope.evaluation_templates);
+
             $scope.students = res.students;
         }, function(err){
-            console.log("A request resulted in an error...");
+            console.log("The Classes/get request resulted in an error...");
             console.log(err);
         });
 

@@ -32,7 +32,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<label for="EvaluationTemplateScale" class="eval_label">Rating Scale</label>
 			<select id="EvaluationTemplateScale" name="scale" class="eval_input"
-			ng-model="evaluation_template.rating_type_id">
+			ng-model="evaluation_template.rating_type_id" value="evaluation_template.rating_type_id">
 				<option ng-repeat="ratingType in ratingTypes" value="{{ratingType.id}}">
 					{{ratingType.name}} [on a scale of {{ratingType.scale}}]
 				</option>
