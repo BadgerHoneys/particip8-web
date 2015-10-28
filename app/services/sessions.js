@@ -6,6 +6,6 @@
         .factory('Sessions', SessionsFactory);
 
     function SessionsFactory($resource) {
-        return $resource('http://localhost:80/sessions', {}, {});
+        return $resource('http://ec2-52-23-157-29.compute-1.amazonaws.com/sessions', {}, {});
     };
 })();
