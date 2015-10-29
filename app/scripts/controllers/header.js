@@ -3,18 +3,17 @@
 
     angular
         .module('particip8WebApp')
-        .controller('HeaderCtrl', ['$scope', '$cookies', '$location', function ($scope, $cookies, $location) {
+        .controller('HeaderController', ['$cookies', '$location', HeaderController]);
 
-            $scope.logout = function(){
-                console.log("logging out");
-            
-                //clear the cookie
-                $cookies.remove("user_id");
+    function HeaderController($cookies, $location) {
 
-                console.log("user_id cookie cleared")
+        this.logout = function(){
 
-                $location.path("/");
-            }
+            //remove the auth_token from cookies 
+            $cookies.remove("auth_token");
 
-        }]);
+            //redirect the user to the root url
+            $location.path("/"); 
+        }
+    }
 })();

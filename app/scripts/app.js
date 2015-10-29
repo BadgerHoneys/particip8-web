@@ -56,13 +56,13 @@ angular
       })
       .when('/register_school', {
         templateUrl: 'app/views/register_school.html',
-        controller: 'RegisterSchoolCtrl',
-        controllerAs: 'register_school'
+        controller: 'RegisterController',
+        controllerAs: 'register_ctrl'
       })
       .when('/help', {
         templateUrl: 'app/views/help.html',
-        controller: 'HelpCtrl',
-        controllerAs: 'help'
+        controller: 'HelpController',
+        controllerAs: 'help_ctrl'
       })
       .when('/manage_class/', {
         templateUrl: 'app/views/manage_class.html',
@@ -71,8 +71,8 @@ angular
       })
       .when('/report', {
         templateUrl: 'app/views/report.html',
-        controller: 'ReportCtrl',
-        controllerAs: 'report'
+        controller: 'ReportController',
+        controllerAs: 'report_ctrl'
       })
       .otherwise({
         redirectTo: '/'
