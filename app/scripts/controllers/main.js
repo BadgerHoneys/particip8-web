@@ -3,30 +3,35 @@
 
     angular
         .module('particip8WebApp')
-        .controller('MainCtrl', ['$scope', '$cookies', '$location', 'Sessions', function ($scope, $cookies, $location, Sessions) {
+        .controller('MainController', ['Sessions', '$cookies', '$location', MainController]);
+    
+    function MainController(Sessions, $cookies, $location) {
 
-        	$scope.user = {
-        		email: "",
-        		password: ""
-        	}
+    	this.user = {
+    		email: "",
+    		password: ""
+    	}
 
-            $scope.login = function () {        
+        this.login = function () {        
 
-                Sessions.save($scope.user, function(res){
+            console.log("login invoked")
+            console.log(this.user)
 
-                    //use cookies to save the generated auth token
-                    $cookies.put("auth_token", res["auth_token"]);
+            Sessions.save(this.user, function(res){
 
-                    $location.path("/classes");
+                //use cookies to save the generated auth token
+                $cookies.put("auth_token", res["auth_token"]);
 
-                },function(err){
-                    alert("There was an error when authenticating with the server...");
-                    console.log(err);
-                });
-            };
+                $location.path("/classes");
 
-            $scope.logout = function(){
-                //console.log("logging out");
-            }
-        }]);
+            },function(err){
+                alert("There was an error when authenticating with the server...");
+                console.log(err);
+            });
+        }.bind(this);
+
+        this.logout = function(){
+            //console.log("logging out");
+        }
+    }
 })();
