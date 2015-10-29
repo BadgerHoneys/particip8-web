@@ -4,10 +4,10 @@
 
     angular
         .module('particip8WebApp')
-        .controller('EvaluationTemplateController', ['RatingTypes', 'EvaluationTypes', 'EvaluationTemplates',
+        .controller('EvaluationTemplateController', ['RatingTypes', 'EvaluationTemplates',
         '$location', '$cookies', '$http', '$routeParams', EvaluationTemplateController]);
 
-    function EvaluationTemplateController(RatingTypes, EvaluationTypes, EvaluationTemplates, 
+    function EvaluationTemplateController(RatingTypes, EvaluationTemplates, 
         $location, $cookies, $http, $routeParams) {
 
         //TODO: Find out how to globalize this
@@ -18,7 +18,6 @@
             evaluation_template_id: "",
             school_class_id: "",
             name: "",
-            evaluation_type_id: "",
             rating_type_id: ""
         }
 
@@ -44,7 +43,6 @@
             }.bind(this))
         }
 
-        this.evaluationTypes = EvaluationTypes.query();
         this.ratingTypes = RatingTypes.query();
 
         this.createEvaluation = function(evaluation_template) {            

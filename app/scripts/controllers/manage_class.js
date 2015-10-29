@@ -13,6 +13,7 @@
         this.my_classes = [];
         this.all_classes = [];
 
+/*
         // TODO: Change this to only get classes related to this teacher's school
         Classes.query(function(data){
             var my_class_data = [];
@@ -106,7 +107,7 @@
         $scope.submitChanges = function() {
         	$location.path('/home/');
         }
+*/
 
-
-    }]);
+    }
 })();
