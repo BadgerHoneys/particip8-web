@@ -31,12 +31,12 @@ angular
       })
       .when('/class/:class_id/evaluation_template', {
         templateUrl: 'app/views/evaluation_template.html',
-        controller: 'EvaluationTemplateController',
+        controller: 'CreateEvaluationTemplateController',
         controllerAs: 'evaluation_template_ctrl'
       })
       .when('/class/:class_id/evaluation_template/:evaluation_template_id', {
         templateUrl: 'app/views/evaluation_template.html',
-        controller: 'EvaluationTemplateController',
+        controller: 'EditEvaluationTemplateController',
         controllerAs: 'evaluation_template_ctrl'
       })      
       .when('/class/:id', {

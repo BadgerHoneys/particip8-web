@@ -1,45 +1,47 @@
 <div class="row">
 	<div class="banner col-md-4 col-md-offset-4">
-		<h1 ng-if="!edit">New Evaluation</h1>
-		<h1 ng-if="edit">Edit Evaluation</h1>
+		<h1>{{evaluation_template_ctrl.header}}</h1>
 	</div>
 </div>
 
 <hr/>
 
-<form name="evaluation" role="form">
+<form name="EvaluationTemplate" role="form">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<label for="EvaluationTemplateName" class="eval_label">Evaluation Name</label>
-			<input type="text" id="EvaluationTemplateName" name="name" class="eval_input" 
+			<label for="Name" class="eval_label">Evaluation Name</label>
+			<input type="text" id="Name" name="name" class="eval_input" 
 			ng-model="evaluation_template_ctrl.evaluation_template.name" placeholder="Evaluation Template's Name" autofocus />			
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<label for="EvaluationTemplateScale" class="eval_label">Rating Scale</label>
-			<select id="EvaluationTemplateScale" name="scale" class="eval_input"
+			<label for="RatingType" class="eval_label">Rating Scale</label>
+			<select id="RatingType" name="scale" class="eval_input"
 			ng-model="evaluation_template_ctrl.evaluation_template.rating_type_id" 
 			value="evaluation_template_ctrl.evaluation_template.rating_type_id">
-				<option ng-repeat="ratingType in evaluation_template_ctrl.ratingTypes" 
-				value="{{ratingType.id}}">
-					{{ratingType.name}} [on a scale of {{ratingType.scale}}]
+				<option ng-repeat="rating_type in evaluation_template_ctrl.rating_types" 
+				value="{{rating_type.id}}">
+					{{rating_type.name}} [on a scale of {{rating_type.scale}}]
 				</option>
 			</select>
-
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<button type="submit" class="eval_btn" ng-if="!edit" 
-			ng-click="evaluation_template_ctrl.createEvaluation(evaluation_template_ctrl.evaluation_template)">
+		<div class="col-md-8 col-md-offset-2">
+			<button type="submit" class="eval_btn col-md-4" ng-if="!evaluation_template_ctrl.edit" 
+			ng-click="evaluation_template_ctrl.createTemplate(evaluation_template_ctrl.evaluation_template)">
 				Create Evaluation
 			</button>
-			<button type="submit" class="eval_btn" ng-if="edit" 
-			ng-click="evaluation_template_ctrleditEvaluation(evaluation_template_ctrl.evaluation_template)">
+			<button type="submit" class="eval_btn col-md-4" ng-if="evaluation_template_ctrl.edit" 
+			ng-click="evaluation_template_ctrl.editTemplate(evaluation_template_ctrl.evaluation_template)">
 				Edit Evaluation
+			</button>
+			<button type="submit" class="eval_btn col-md-4" ng-if="evaluation_template_ctrl.edit"
+			ng-click="evaluation_template_ctrl.deleteTemplate(evaluation_template_ctrl.evaluation_template)">
+				Delete Evaluation
 			</button>
 		</div>
 	</div>
