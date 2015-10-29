@@ -31,13 +31,13 @@ angular
       })
       .when('/class/:class_id/evaluation_template', {
         templateUrl: 'app/views/evaluation_template.html',
-        controller: 'EvaluationTemplateCtrl',
-        controllerAs: 'evaluation_template'
+        controller: 'EvaluationTemplateController',
+        controllerAs: 'evaluation_template_ctrl'
       })
       .when('/class/:class_id/evaluation_template/:evaluation_template_id', {
         templateUrl: 'app/views/evaluation_template.html',
-        controller: 'EvaluationTemplateCtrl',
-        controllerAs: 'evaluation_template'
+        controller: 'EvaluationTemplateController',
+        controllerAs: 'evaluation_template_ctrl'
       })      
       .when('/class/:id', {
         templateUrl: 'app/views/class.html',
