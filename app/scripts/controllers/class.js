@@ -3,52 +3,49 @@
 
     angular
         .module('particip8WebApp')
-        .controller('ClassCtrl', ['Classes', '$scope', '$location', '$cookies', '$http', '$routeParams', 
-            ClassCtrl]);
+        .controller('ClassController', ['Classes', '$location', '$cookies', '$http', '$routeParams',
+        ClassController]);
 
-    function ClassCtrl(Classes, $scope, $location, $cookies, $http, $routeParams){
+    function ClassController(Classes, $location, $cookies, $http, $routeParams) {
 
         //TODO: Find out how to globalize this
         //replicate this across all controllers
         $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
 
-        $scope.school_classes_id = $routeParams.id;
+        this.school_classes_id = $routeParams.id;
 
-        $scope.class_name = "";
-        $scope.evaluations_templates = [];
-        $scope.students = [];
+        this.class_name = "";
+        this.evaluations_templates = [];
+        this.students = [];
 
         //hit /school_classes/:id and get class, evaluation templates, and student information
-        Classes.get({id: $scope.school_classes_id},function(res){
-            $scope.name = res.name;
-            $scope.evaluation_templates = res.evaluation_templates;
-            console.log("evaluation template...");
-            console.log($scope.evaluation_templates);
+        this.Class = Classes.get({id: this.school_classes_id});
 
-            $scope.students = res.students;
-        }, function(err){
-            console.log("The Classes/get request resulted in an error...");
-            console.log(err);
-        });
+        this.Class.$promise.then(function(Class){
+            this.name = Class.name;
+            this.evaluation_templates = Class.evaluation_templates;
 
-        // do a GET on the class here
-        // check if the class exists
-        // build out the array with class data
-        // otherwise throw 404
+            console.log("Evaluation Template...");
+            console.log(this.evaluation_templates);
 
-        $scope.makeReport = function() {
+            this.students = Class.students;
+
+        }.bind(this));
+
+
+        this.makeReport = function() {
             // add a service request to a domain level function
             // create an excel sheet or something?
         }
 
-        $scope.newEvaluation = function() {
+        this.newEvaluation = function() {
             // how does it know which class these should be related to?
             // probably through cookies or something
             var currentPath = $location.path();
             $location.path(currentPath + '/evaluation_template');
         }
 
-        $scope.editEvaluation = function(evaluation) {
+        this.editEvaluation = function(evaluation) {
             var currentPath = $location.path();
             $location.path(currentPath + '/evaluation_template/' + evaluation.id);
         }

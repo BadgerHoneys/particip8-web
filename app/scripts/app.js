@@ -26,8 +26,8 @@ angular
       })
       .when('/classes',{
         templateUrl: '/app/views/classes.html',
-        controller: 'ClassesCtrl',
-        controllerAs: 'classes'
+        controller: 'ClassesController',
+        controllerAs: 'classes_ctrl'
       })
       .when('/class/:class_id/evaluation_template', {
         templateUrl: 'app/views/evaluation_template.html',
@@ -41,18 +41,18 @@ angular
       })      
       .when('/class/:id', {
         templateUrl: 'app/views/class.html',
-        controller: 'ClassCtrl',
-        controllerAs: 'class'
+        controller: 'ClassController',
+        controllerAs: 'class_ctrl'
       })
       .when('/about', {
         templateUrl: '/app/views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'AboutController',
+        controllerAs: 'about_ctrl'
       })
       .when('/contact', {
         templateUrl: 'app/views/contact.html',
-        controller: 'ContactCtrl',
-        controllerAs: 'contact'
+        controller: 'ContactController',
+        controllerAs: 'contact_ctrl'
       })
       .when('/register_school', {
         templateUrl: 'app/views/register_school.html',

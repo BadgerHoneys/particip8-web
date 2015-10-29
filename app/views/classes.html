@@ -4,7 +4,7 @@
 	</div>
 </div>
 
-<div class="row classes_overview" ng-repeat="class in classes" ng-click="manageClass(class)">
+<div class="row classes_overview" ng-repeat="class in classes_ctrl.classes" ng-click="classes_ctrl.manageClass(class)">
 	<div class="col-md-3">
 		<div class="class_name">{{class.name}}</div>
 	</div>
@@ -36,7 +36,7 @@
 
 <div class="row">
 	<div class="col-md-3 col-md-offset-9">
-		<button href="" class="class_btn" ng-click="addClass()">
+		<button href="" class="class_btn" ng-click="classes_ctrl.addClass()">
 			+ Manage Classes
 		</button>
 	</div>

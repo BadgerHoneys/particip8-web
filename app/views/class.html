@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="banner col-md-4 col-md-offset-4">
-		{{ name }}
+		{{ eval_ctrl.name }}
 	</div>
 </div>
 
@@ -12,13 +12,13 @@
 				Evaluations
 			</div>
 
-			<button class="class_btn col-md-6" ng-click="newEvaluation()">
+			<button class="class_btn col-md-6" ng-click="class_ctrl.newEvaluation()">
 				+ New Evaluation
 			</button>
 		</div>
 
 		<div class="class_section">
-			<div class="class_item" ng-repeat="eval in evaluation_templates" ng-click="editEvaluation(eval)">
+			<div class="class_item" ng-repeat="eval in class_ctrl.evaluation_templates" ng-click="class_ctrl.editEvaluation(eval)">
 				<div class="item_title">
 					{{ eval.name }}
 				</div>
@@ -44,7 +44,7 @@
 		</div>
 
 		<div class="class_section">
-			<div class="class_item" ng-repeat="student in students">
+			<div class="class_item" ng-repeat="student in class_ctrl.students">
 				<div class="item_title">
 					{{ student.name }}
 				</div>
