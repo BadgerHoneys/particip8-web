@@ -74,6 +74,11 @@ angular
         controller: 'ReportSelectionController',
         controllerAs: 'report_selection_ctrl'
       })
+      .when('/report', {
+        templateUrl: 'app/views/report.html',
+        controller: 'ReportController',
+        controllerAs: 'report_ctrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
