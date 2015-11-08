@@ -75,8 +75,8 @@
         }.bind(this)
 
 
-        this.submitChanges = function() {
-        	$location.path('/home/');
+        this.backButton = function() {
+        	$location.path('/classes/');
         }.bind(this)
 
 
