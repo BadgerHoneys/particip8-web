@@ -4,10 +4,10 @@
 	</div>
 </div>
 
-<p>Classroom: {{report_options_ctrl.selections.class_id}}</p>
-<p>Time Period: {{report_options_ctrl.selections.time_period}}</p>
+<p>Classroom: {{report_selection_ctrl.selections.class_id}}</p>
+<p>Time Period: {{report_selection_ctrl.selections.time_period}}</p>
 
-<form name="ReportSelectionForm" role="form" ng-submit="report_options_ctrl.submit()">
+<form name="ReportSelectionForm" role="form" ng-submit="report_selection_ctrl.submit()">
 	
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -16,12 +16,9 @@
 				<div class="col-md-12">
 					<label for="classroom_selection_field">Classroom</label>
 					<select id="classroom_selection_field" name="classroom_selection"
-					ng-model="report_options_ctrl.selections.class_id" 
-					value="report_options_ctrl.selection.class_id">
-						<option ng-repeat="classroom in report_options_ctrl.class_selections" 
-						value="{{classroom.id}}">
-						{{classroom.name}}
-						</option>
+					ng-model="report_selection_ctrl.selections.class_id"
+					ng-selected="1"
+					ng-options="classroom.id as classroom.name for classroom in report_selection_ctrl.class_selections">
 					</select>
 				</div>
 			</div>
@@ -30,9 +27,9 @@
 				<div class="col-md-12">
 					<label for="time_period_selection_field">Time Period</label>
 					<select id="time_period_selection_field" name="time_period_selection_field"
-					ng-model="report_options_ctrl.selections.time_period"
+					ng-model="report_selection_ctrl.selections.time_period"
 					value="report_options_ctrl.selection.time_period">
-						<option ng-repeat="time_period in report_options_ctrl.time_periods"
+						<option ng-repeat="time_period in report_selection_ctrl.time_periods"
 						value="{{time_period}}">
 							time_period
 						</option>
@@ -41,8 +38,7 @@
 			</div>
 
 			<div class="row">
-				<button type="submit" class="col-md-4" ng-if="!evaluation_template_ctrl.edit" 
-				ng-click="evaluation_template_ctrl.createTemplate(evaluation_template_ctrl.evaluation_template)">
+				<button type="submit" class="col-md-4">
 					Generate Report
 				</button>				
 			</div>
