@@ -29,7 +29,6 @@
 					<label for="time_period_selection_field" class="selection_label">Time Period</label>
 					<select id="time_period_selection_field" name="time_period_selection_field"
 					class="selection_input"
-					ng-init="Select a Time Period"
 					ng-model="report_selection_ctrl.selections.time_period"
 					ng-options="time_period.short_name as time_period.description for time_period in report_selection_ctrl.time_period_selections">
 					<option value="">Select a Time Frame</option>

@@ -10,16 +10,16 @@
 			<thead>
 				<tr>
 					<th>Student Name</th>
-					<th ng-repeat="eval in evaluations"> {{eval.name}} </th>
+					<th ng-repeat="eval in report_ctrl.evaluation_templates"> {{eval.name}} </th>
 				</tr>
 			</thead>
 
 			<tbody>
-				<tr ng-repeat="student in student_reports">
+				<tr ng-repeat="student in report_ctrl.student_records">
 					<th>{{ student.name }}</th>
 
-					<th ng-repeat="each rating average for this student">
-						{{ rating.score }}/{{ rating.possible }}
+					<th ng-repeat="eval in report_ctrl.evaluation_templates">
+						{{ student['ratings'][eval.name] }}
 					</th>
 				</tr>
 			</tbody>

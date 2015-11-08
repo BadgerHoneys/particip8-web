@@ -153,7 +153,8 @@ html, body{
 
 .classes_overview .class_name{
 	color:#f4711a;
-	font-size:36px;
+	font-size:32px;
+	white-space:nowrap;
 }
 
 .classes_overview .class_label{
@@ -312,7 +313,7 @@ html, body{
 	padding:5px;
 }
 
-.selection_btn{
+.eval_btn{
 	margin-top:4px;
 	width:100%;
 	background: linear-gradient(#0090ff, #38a0f1);
@@ -325,11 +326,11 @@ html, body{
 	margin-top:10px;
 }
 
-.selection_btn:hover{
+.eval_btn:hover{
 	background:#0874c8;
 }
 
-.selection_delete_btn{
+.eval_delete_btn{
 	margin-top:4px;
 	width:100%;
 	background: linear-gradient(#d11919, #ba1818);
@@ -342,7 +343,7 @@ html, body{
 	margin-top:10px;
 }
 
-.selection_delete_btn:hover{
+.eval_delete_btn:hover{
 	background:#8a0101;
 }
 
@@ -366,4 +367,8 @@ html, body{
 	color:#222222;
 	width:100px;
 	text-align:center;
+}
+
+.table_row:hover{
+
 }
