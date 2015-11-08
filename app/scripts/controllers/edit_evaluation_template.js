@@ -40,7 +40,7 @@
             evaluation_template.school_class_id = $routeParams.class_id
 
             EvaluationTemplates.update({id:$routeParams.evaluation_template_id},
-                evaluation_template, function(res){
+                {"evaluation_template":evaluation_template}, function(res){
                 console.log("success");
                 $location.path("/class/" + $routeParams.class_id);
             }, function(err){

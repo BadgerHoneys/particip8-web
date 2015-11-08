@@ -66,8 +66,8 @@ angular
       })
       .when('/manage_class/', {
         templateUrl: 'app/views/manage_class.html',
-        controller: 'ManageClassCtrl',
-        controllerAs: 'manage_class'
+        controller: 'ManageClassController',
+        controllerAs: 'manage_class_ctrl'
       })
       .when('/report_selection', {
         templateUrl: 'app/views/report_selection.html',
