@@ -69,10 +69,10 @@ angular
         controller: 'ManageClassCtrl',
         controllerAs: 'manage_class'
       })
-      .when('/report', {
-        templateUrl: 'app/views/report.html',
-        controller: 'ReportController',
-        controllerAs: 'report_ctrl'
+      .when('/report_selection', {
+        templateUrl: 'app/views/report_selection.html',
+        controller: 'ReportSelectionController',
+        controllerAs: 'report_selection_ctrl'
       })
       .otherwise({
         redirectTo: '/'
