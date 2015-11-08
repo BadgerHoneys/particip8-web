@@ -17,7 +17,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="class_section">
-			<div class="class_item" ng-repeat="class in all_classes" ng-click="addClass(class)">
+			<div class="class_item" ng-repeat="class in manage_class_ctrl.available_classes" ng-click="manage_class_ctrl.setTeacher(class)">
 				<div class="item_title">
 					{{ class.name }}
 				</div>
@@ -37,7 +37,7 @@
 
 	<div class="col-md-6">
 		<div class="class_section">
-			<div class="class_item" ng-repeat="class in my_classes" ng-click="removeClass(class)">
+			<div class="class_item" ng-repeat="class in manage_class_ctrl.my_classes" ng-click="manage_class_ctrl.removeTeacher(class)">
 				<div class="item_title">
 					{{ class.name }}
 				</div>
