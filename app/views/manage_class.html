@@ -1,5 +1,8 @@
 <div class="row">
-	<div class="banner col-md-6 col-md-offset-3">
+	<div class="back_button col-md-3" ng-click="manage_class_ctrl.backButton()">
+		&lt; Back
+	</div>
+	<div class="banner col-md-6">
 		Class Manager
 	</div>
 </div>
@@ -22,12 +25,8 @@
 					{{ class.name }}
 				</div>
 
-				<div class="item_info_sm">
-					{{ class.id }}
-				</div>
-
-				<div class="item_label">
-					Class ID:
+				<div class="item_info_add">
+					Add This Class
 				</div>
 
 				<div class="clearfix"></div>
@@ -42,12 +41,8 @@
 					{{ class.name }}
 				</div>
 
-				<div class="item_info_sm">
-					{{ class.id }}
-				</div>
-
-				<div class="item_label">
-					Class ID:
+				<div class="item_info_rmv">
+					Remove This Class
 				</div>
 
 				<div class="clearfix"></div>

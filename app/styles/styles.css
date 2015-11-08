@@ -44,6 +44,18 @@ html, body{
 	font-family:Arial, sans-serif;
 }
 
+.back_button{
+	color:#777777;
+	margin-top:5px;
+	font-size:30px;
+	font-family:Arial, sans-serif;
+	cursor:pointer;
+}
+
+.back_button:hover{
+	color:#444444;
+}
+
 .footer {
 	border-top:1px solid #cccccc;
 	padding:10px 0px;
@@ -249,6 +261,26 @@ html, body{
 	float:right;
 }
 
+.class_item .item_info_rmv{
+	color:#E10E1F;
+	font-family:Arial, sans-serif;
+	margin-top:7px;
+	margin-right:10px;
+	font-size:20px;
+	display:inline;
+	float:right;
+}
+
+.class_item .item_info_add{
+	color:#20B002;
+	font-family:Arial, sans-serif;
+	margin-top:7px;
+	margin-right:10px;
+	font-size:20px;
+	display:inline;
+	float:right;
+}
+
 .selection_label{
 	color:#444444;
 	font-size:28px;
@@ -314,4 +346,24 @@ html, body{
 	background:#8a0101;
 }
 
+.table_header{
+	color:#222222;
+	word-wrap:normal;
+}
 
+.table_header_hard{
+	color:#444444;
+	word-wrap:normal;
+	width:100px;
+	text-align:center;
+}
+
+.table_row{
+	color:#222222;
+}
+
+.table_row_hard{
+	color:#222222;
+	width:100px;
+	text-align:center;
+}

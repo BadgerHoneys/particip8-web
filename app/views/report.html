@@ -5,4 +5,24 @@
 </div>
 
 <div class="row">
-	<div class=""
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Student Name</th>
+					<th ng-repeat="eval in evaluations"> {{eval.name}} </th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="student in student_reports">
+					<th>{{ student.name }}</th>
+
+					<th ng-repeat="each rating average for this student">
+						{{ rating.score }}/{{ rating.possible }}
+					</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
