@@ -249,12 +249,12 @@ html, body{
 	float:right;
 }
 
-.eval_label{
+.selection_label{
 	color:#444444;
 	font-size:28px;
 }
 
-.eval_input{
+.selection_input{
 	font-size:24px;
 	font-family:Arial, sans-serif;
 	height:44px;
