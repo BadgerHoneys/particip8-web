@@ -22,6 +22,13 @@
 
     	//get the classes for a particular teacher
     	var class_selections = Classes.query();
+    	//the time selection options
+    	this.time_period_selections = [
+    		{description: "Day", short_name: "day"},
+    		{description: "Week", short_name: "week"},
+    		{description: "Month", short_name: "month"},
+    		{description: "Test", short_name: "all"}
+    	]
 
     	class_selections.$promise.then(function(class_selections){
     		this.class_selections = class_selections.map(function(obj){

@@ -14,10 +14,10 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<label for="classroom_selection_field">Classroom</label>
-					<select id="classroom_selection_field" name="classroom_selection"
+					<label for="classroom_selection_field" class="selection_label">Classroom</label>
+					<select id="classroom_selection_field" name="classroom_selection" 
+					class="selection_input"
 					ng-model="report_selection_ctrl.selections.class_id"
-					ng-selected="1"
 					ng-options="classroom.id as classroom.name for classroom in report_selection_ctrl.class_selections">
 					</select>
 				</div>
@@ -25,22 +25,21 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<label for="time_period_selection_field">Time Period</label>
+					<label for="time_period_selection_field" class="selection_label">Time Period</label>
 					<select id="time_period_selection_field" name="time_period_selection_field"
+					class="selection_input"
 					ng-model="report_selection_ctrl.selections.time_period"
-					value="report_options_ctrl.selection.time_period">
-						<option ng-repeat="time_period in report_selection_ctrl.time_periods"
-						value="{{time_period}}">
-							time_period
-						</option>
+					ng-options="time_period.short_name as time_period.description for time_period in report_selection_ctrl.time_period_selections">
 					</select>
 				</div>			
 			</div>
 
+			{{report_selection_ctrl.time_period_selections}}
+
 			<div class="row">
-				<button type="submit" class="col-md-4">
+				<button type="submit" class="selection_btn col-md-4 col-md-offset-4">
 					Generate Report
-				</button>				
+				</button>
 			</div>
 
 		</div>

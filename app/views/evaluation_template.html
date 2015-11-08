@@ -28,15 +28,15 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<button type="submit" class="eval_btn col-md-4 col-md-offset-1" ng-if="!evaluation_template_ctrl.edit" 
+			<button type="submit" class="selection_btn col-md-4 col-md-offset-4" ng-if="!evaluation_template_ctrl.edit" 
 			ng-click="evaluation_template_ctrl.createTemplate(evaluation_template_ctrl.evaluation_template)">
 				Create Evaluation
 			</button>
-			<button type="submit" class="eval_btn col-md-4 col-md-offset-1" ng-if="evaluation_template_ctrl.edit" 
+			<button type="submit" class="selection_btn col-md-4 col-md-offset-1" ng-if="evaluation_template_ctrl.edit" 
 			ng-click="evaluation_template_ctrl.editTemplate(evaluation_template_ctrl.evaluation_template)">
 				Edit Evaluation
 			</button>
-			<button type="submit" class="eval_delete_btn col-md-4 col-md-offset-1" ng-if="evaluation_template_ctrl.edit"
+			<button type="submit" class="selection_delete_btn col-md-4 col-md-offset-1" ng-if="evaluation_template_ctrl.edit"
 			ng-click="evaluation_template_ctrl.deleteTemplate(evaluation_template_ctrl.evaluation_template)">
 				Delete Evaluation
 			</button>

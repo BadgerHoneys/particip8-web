@@ -280,7 +280,7 @@ html, body{
 	padding:5px;
 }
 
-.eval_btn{
+.selection_btn{
 	margin-top:4px;
 	width:100%;
 	background: linear-gradient(#0090ff, #38a0f1);
@@ -293,11 +293,11 @@ html, body{
 	margin-top:10px;
 }
 
-.eval_btn:hover{
+.selection_btn:hover{
 	background:#0874c8;
 }
 
-.eval_delete_btn{
+.selection_delete_btn{
 	margin-top:4px;
 	width:100%;
 	background: linear-gradient(#d11919, #ba1818);
@@ -310,7 +310,7 @@ html, body{
 	margin-top:10px;
 }
 
-.eval_delete_btn:hover{
+.selection_delete_btn:hover{
 	background:#8a0101;
 }
 
