@@ -17,14 +17,11 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<label for="RatingType" class="selection_label">Rating Scale</label>
-			<select id="RatingType" name="scale" class="selection_input"
-			ng-model="evaluation_template_ctrl.evaluation_template.rating_type_id" 
-			value="evaluation_template_ctrl.evaluation_template.rating_type_id">
-				<option ng-repeat="rating_type in evaluation_template_ctrl.rating_types" 
-				value="{{rating_type.id}}">
-					{{rating_type.name}} [on a scale of {{rating_type.scale}}]
-				</option>
+			<label for="RatingType" class="eval_label">Rating Scale</label>
+
+ 			<select id="RatingType" name="scale" class="eval_input"
+			ng-model="evaluation_template_ctrl.evaluation_template.rating_type_id"
+			ng-options="rating_type.id as rating_type.name for rating_type in evaluation_template_ctrl.rating_types">
 			</select>
 		</div>
 	</div>
