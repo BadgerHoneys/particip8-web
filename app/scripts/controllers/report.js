@@ -12,18 +12,29 @@
         //replicate this across all controllers
         $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
 
-
         var params = $location.search();
-        console.log(params)
 
+        //get reporting parameters from 
         this.class_id = params['class_id']
         this.time_period = params['time_period']
 
-        console.log("class_id: " + this.class_id)
-        console.log("time period: " + this.time_period)
+        var report_data = Classes.report({id:this.class_id, time_period:this.time_period});
 
-        Classes.report({id:this.class_id, time_period:this.time_period});
+        this.evaluation_templates = [];
+        this.student_records = [];
 
+
+        report_data.$promise.then(function(report_data){
+            
+            console.log("report data returned");
+            console.log(report_data)
         
+            this.evaluation_templates = report_data['evaluation_templates'];
+            this.student_records = report_data['student_records']
+
+            console.log(this.evaluation_templates)
+            console.log(this.student_records)
+
+        }.bind(this));
     }
 })();

@@ -10,7 +10,7 @@
 			<thead>
 				<tr>
 					<th>Student Name</th>
-					<th ng-repeat="eval in report_ctrl.evaluation_templates"> {{eval.name}} </th>
+					<th ng-repeat="template in report_ctrl.evaluation_templates"> {{template.name}} </th>
 				</tr>
 			</thead>
 
@@ -18,8 +18,9 @@
 				<tr ng-repeat="student in report_ctrl.student_records">
 					<th>{{ student.name }}</th>
 
-					<th ng-repeat="eval in report_ctrl.evaluation_templates">
-						{{ student['ratings'][eval.name] }}
+					<th ng-repeat="template in report_ctrl.evaluation_templates">
+
+						{{ student["ratings"][template.id] }}
 					</th>
 				</tr>
 			</tbody>
