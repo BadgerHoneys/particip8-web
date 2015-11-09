@@ -12,6 +12,8 @@
         //replicate this across all controllers
         $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
 
+        this.loading = true;
+
         var params = $location.search();
 
         //get reporting parameters from 
@@ -33,6 +35,8 @@
 
             console.log(this.evaluation_templates)
             console.log(this.student_records)
+
+            this.loading = false;
 
         }.bind(this));
     }
