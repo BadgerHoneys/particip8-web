@@ -23,7 +23,5 @@
         console.log("time period: " + this.time_period)
 
         Classes.report({id:this.class_id, time_period:this.time_period});
-
-        
     }
 })();
