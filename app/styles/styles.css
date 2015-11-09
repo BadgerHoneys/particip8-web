@@ -372,3 +372,11 @@ html, body{
 .table_row:hover{
 
 }
+
+.hidden_content{
+	display:none;
+}
+
+.loading_gif{
+	display:block;
+}

@@ -23,7 +23,6 @@
         this.evaluation_templates = [];
         this.student_records = [];
 
-
         report_data.$promise.then(function(report_data){
             
             console.log("report data returned");
