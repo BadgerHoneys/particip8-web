@@ -330,7 +330,7 @@ html, body{
 	background:#0874c8;
 }
 
-.eval_delete_btn{
+.selection_delete_btn{
 	margin-top:4px;
 	width:100%;
 	background: linear-gradient(#d11919, #ba1818);

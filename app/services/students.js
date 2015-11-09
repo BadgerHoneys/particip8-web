@@ -3,10 +3,10 @@
 
     angular
         .module('particip8WebApp')
-        .factory('Students', StudentsFactory);
+        .factory('Students', ['$resource', 'base_url', StudentsFactory]);
 
-    function StudentsFactory($resource) {
-        return $resource('http://localhost:3000/students/:id', {}, { 
+    function StudentsFactory($resource, base_url) {
+        return $resource(base_url + '/students/:id', {}, { 
         	query: {method:'GET', isArray:true}
         });
     };

@@ -3,10 +3,10 @@
 
     angular
         .module('particip8WebApp')
-        .factory('DeleteEvaluations', DeleteEvaluationsFactory);
+        .factory('DeleteEvaluations', ['$resource', 'base_url', DeleteEvaluationsFactory]);
 
-    function DeleteEvaluationsFactory($resource) {
-        return $resource('http://localhost:3000/evaluation_templates/:id', 
+    function DeleteEvaluationsFactory($resource, base_url) {
+        return $resource(base_url + '/evaluation_templates/:id', 
         	{id: '@id'},
         	{ 
         		delete_eval: {

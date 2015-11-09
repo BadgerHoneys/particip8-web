@@ -3,10 +3,10 @@
 
     angular
         .module('particip8WebApp')
-        .factory('EvaluationTemplates', EvaluationTemplatesFactory);
+        .factory('EvaluationTemplates', ['$resource', 'base_url', EvaluationTemplatesFactory]);
 
-    function EvaluationTemplatesFactory($resource) {
-        return $resource('http://localhost:3000/evaluation_templates/:id', {id: '@id'}, 
+    function EvaluationTemplatesFactory($resource, base_url) {
+        return $resource(base_url + '/evaluation_templates/:id', {id: '@id'}, 
         {'update': {method: 'PUT'}});
     };
 })();

@@ -3,10 +3,10 @@
 
     angular
         .module('particip8WebApp')
-        .factory('EditClass', EditClassFactory);
+        .factory('EditClass', ['$resource', 'base_url', EditClassFactory]);
 
-    function EditClassFactory($resource) {
-        return $resource('http://localhost:3000/school_classes/:id', 
+    function EditClassFactory($resource, base_url) {
+        return $resource(base_url + '/school_classes/:id', 
         	{id: '@id'},
         	{ 
         		put: {

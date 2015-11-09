@@ -3,9 +3,9 @@
 
     angular
         .module('particip8WebApp')
-        .factory('RatingTypes', RatingTypesFactory);
+        .factory('RatingTypes', ['$resource', 'base_url', RatingTypesFactory]);
 
-    function RatingTypesFactory($resource) {
-        return $resource('http://localhost:3000/rating_types/:id', {}, {});
+    function RatingTypesFactory($resource, base_url) {
+        return $resource(base_url + '/rating_types/:id', {}, {});
     };
 })();

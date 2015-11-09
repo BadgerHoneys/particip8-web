@@ -17,6 +17,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  .value("base_url","http://localhost:3000")
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {

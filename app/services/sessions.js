@@ -3,9 +3,9 @@
 
     angular
         .module('particip8WebApp')
-        .factory('Sessions', SessionsFactory);
+        .factory('Sessions', ['$resource', 'base_url', SessionsFactory]);
 
-    function SessionsFactory($resource) {
-        return $resource('http://localhost:3000/sessions', {}, {});
+    function SessionsFactory($resource, base_url) {
+        return $resource(base_url + '/sessions', {}, {});
     };
 })();
