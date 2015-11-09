@@ -17,7 +17,9 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  // Change this based on environment
   .value("base_url","http://localhost:3000")
+  //.value("base_url","http://ec2-52-23-157-29.compute-1.amazonaws.com")
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
