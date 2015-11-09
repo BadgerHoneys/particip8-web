@@ -20,6 +20,10 @@
             set_teacher: {
                 url: 'http://localhost:3000/school_classes/:id/set_teacher',
                 method:'PATCH'
+            },
+            report: {
+                url: 'http://localhost:3000/school_classes/:id/reports',
+                method:'POST'
             }
     	});
     };
