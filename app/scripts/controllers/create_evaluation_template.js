@@ -33,7 +33,7 @@
             //TODO: refactor this -- why arent we able to set $scope.school_class_id at page load time?                
             evaluation_template.school_class_id = $routeParams.class_id
 
-            EvaluationTemplates.save(evaluation_template, function(res){
+            EvaluationTemplates.save({"evaluation_template":evaluation_template}, function(res){
                 console.log("success");
                 $location.path("/class/" + $routeParams.class_id);
             }, function(err){
