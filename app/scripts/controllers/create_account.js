@@ -4,12 +4,19 @@
 
     angular
         .module('particip8WebApp')
-        .controller('CreateAccountController', ['$routeParams', CreateAccountController]);
+        .controller('CreateAccountController', ['EmailVerification', '$routeParams', CreateAccountController]);
 
-    function CreateAccountController($routeParams) {
-    	this.email_token = $routeParams.token;
+    function CreateAccountController(EmailVerification, $routeParams) {
+    	console.log($routeParams.token);
 
-    	console.log(this.email_token);
+    	var response = EmailVerification.verify_token({token:$routeParams.token});
+    	if(response.status == 400){
+    		$location.path("/");
+    	} else if (response.status == 200){
+    		// do stuff
+    	} else {
+    		
+    	}
 
     }
 })();
