@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="banner col-md-6 col-md-offset-3">
+		Register Your School
+	</div>
+</div>
+
+<hr />
+
+<form name="RegisterSchool" role="form" ng-submit="create_account_ctrl.submitAccount()">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<span class="selection_label">Email:</span>
+			<span class="selection_value">{{create_account_ctrl.account.email}}</span> 		
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label for="password1" class="selection_label">Password:</label>
+
+ 			
+			<input type="password" id="password1" name="password1" class="selection_input" 
+			ng-model="create_account_ctrl.account.password1" placeholder="Your Password" autofocus />		
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label for="password2" class="selection_label">Verify Password:</label>
+
+ 			
+			<input type="password" id="password2" name="password2" class="selection_input" 
+			ng-model="create_account_ctrl.account.password2" placeholder="Verify Your Password"/>		
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label for="district" class="selection_label">District Name:</label>
+
+ 			
+			<input type="text" id="district" name="district" class="selection_input" 
+			ng-model="create_account_ctrl.account.password2" placeholder="District Name"/>		
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<button type="submit" class="selection_btn col-md-6 col-md-offset-3">
+				Create Your Account
+			</button>
+		</div>
+	</div>
+</form>
