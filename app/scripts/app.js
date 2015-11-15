@@ -62,6 +62,11 @@ angular
         controller: 'PrelimSignupController',
         controllerAs: 'prelim_signup_ctrl'
       })
+      .when('/password_reset', {
+        templateUrl: 'app/views/prelim_reset.html',
+        controller: 'PrelimResetController',
+        controllerAs: 'prelim_reset_ctrl'
+      })
       .when('/help', {
         templateUrl: 'app/views/help.html',
         controller: 'HelpController',
