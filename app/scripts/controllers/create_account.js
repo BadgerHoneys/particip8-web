@@ -11,15 +11,18 @@
 
     	var response = EmailVerification.verify_token({token:$routeParams.token});
 
-    	console.log(response);
+    	response.$promise.then(function(response){
+    		console.log(response);
 
-    	if(response.status > 299 ){
-    		$location.path("/");
-    	} else if (response.status == 200){
-    		// do stuff
-    	} else {
+    		// TODO: This .status is not correct
+    		if(response.status > 299 ){
+    			$location.path("/");
+    		}
 
-    	}
 
+    		this.email = response['email'];
+    	}.bind(this))
+
+    	// TODO: set up submission function
     }
 })();
