@@ -7,10 +7,6 @@
         .controller('ClassesController', ['Classes', '$location', '$cookies', '$http', ClassesController]);
 
     function ClassesController(Classes, $location, $cookies, $http) {
-        
-        //TODO: Find out how to globalize this
-        //replicate this across all controllers
-        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
 
         this.classes = [];
 

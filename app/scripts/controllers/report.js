@@ -8,10 +8,6 @@
 
     function ReportController(Classes, $http, $cookies, $location) {
 
-        //TODO: Find out how to globalize this
-        //replicate this across all controllers
-        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
-
         this.loading = true;
 
         var params = $location.search();

@@ -10,10 +10,6 @@
     function EditEvaluationTemplateController(RatingTypes, EvaluationTemplates, 
         $location, $cookies, $http, $routeParams) {
 
-        //TODO: Find out how to globalize this
-        //replicate this across all controllers
-        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
-
         this.edit = true;
         this.header = "Edit Evaluation Template"
 

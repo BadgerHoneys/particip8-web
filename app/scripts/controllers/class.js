@@ -7,11 +7,6 @@
         ClassController]);
 
     function ClassController(Classes, $location, $cookies, $http, $routeParams) {
-
-        //TODO: Find out how to globalize this
-        //replicate this across all controllers
-        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token")
-
         this.school_classes_id = $routeParams.id;
 
         this.class_name = "";
