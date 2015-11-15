@@ -57,10 +57,10 @@ angular
         controller: 'ContactController',
         controllerAs: 'contact_ctrl'
       })
-      .when('/register_school', {
-        templateUrl: 'app/views/register_school.html',
-        controller: 'RegisterController',
-        controllerAs: 'register_ctrl'
+      .when('/prelim_signup', {
+        templateUrl: 'app/views/prelim_signup.html', 
+        controller: 'PrelimSignupController',
+        controllerAs: 'prelim_signup_ctrl'
       })
       .when('/help', {
         templateUrl: 'app/views/help.html',
