@@ -4,36 +4,29 @@
     angular
         .module('particip8WebApp')
         .controller('PrelimResetController', [
-            'EmailVerification',
+            'PasswordReset',
             '$location',
             PrelimResetController
         ]);
 
-    function PrelimResetController(EmailVerification, $location) {
+    function PrelimResetController(PasswordReset, $location) {
 
     	this.email = "";
 
         this.passwordResetEmail = function(){
             console.log("Reset email sent!");
-        }
 
-/*
-    	this.passwordResetEmail = function(){
-    		console.log(this.email);
+            PasswordReset.generate_token({email:this.email}, function(res){
+                console.log("password reset success");                
 
-    		EmailVerification.generate_token({email:this.email}, function(res){
-                console.log("success");                
-
-	    		// TODO: The generate_token endpoint will not normally return the
-	    		// token. This must be refactored once emailing works.
-                $location.path("/create_account/" + res['token']);
+                // TODO: The generate_token endpoint will not normally return the
+                // token. This must be refactored once emailing works.
+                $location.path("/reset_password/" + res['token']);
             }, function(err){
                 console.log("A request resulted in an error...");
                 console.log(err);
-            });
+            });        
 
-    	}
-*/
-
+        }
     }
 })();
