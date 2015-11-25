@@ -47,6 +47,31 @@ angular
         controller: 'ClassController',
         controllerAs: 'class_ctrl'
       })
+      .when('/schools', {
+        templateUrl: 'app/views/schools.html',
+        controller: 'SchoolsController',
+        controllerAs: 'schools_ctrl'
+      })
+      .when('/school/:id', {
+        templateUrl: 'app/views/school.html',
+        controller: 'SchoolController',
+        controllerAs: 'school_ctrl'
+      })
+      .when('/create_school', {
+        templateUrl: 'app/views/create_school.html',
+        controller: 'CreateSchoolController',
+        controllerAs: 'create_school_ctrl'
+      })
+      .when('/add_teacher', {
+        templateUrl: 'app/views/add_teacher.html',
+        controller: 'AddTeacherController',
+        controllerAs: 'add_teacher_ctrl'
+      })
+      .when('/add_class', {
+        templateUrl: 'app/views/add_class.html',
+        controller: 'AddClassController',
+        controllerAss: 'add_class_ctrl'
+      })
       .when('/about', {
         templateUrl: '/app/views/about.html',
         controller: 'AboutController',
