@@ -25,6 +25,14 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			<label for="Days" class="selection_label">Class Name</label>
+			<input type="text" id="Days" name="days" class="selection_input" 
+			ng-model="edit_class_ctrl.school_class.days" placeholder="E.g. 'MWF'" />			
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
 			<button type="submit" class="selection_btn col-md-4 col-md-offset-4" ng-if="!edit_class_ctrl.edit" 
 			ng-click="edit_class_ctrl.createClass(edit_class_ctrl.school_class)">
 				Create Class
