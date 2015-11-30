@@ -4,35 +4,32 @@
 
     angular
         .module('particip8WebApp')
-        .controller('AddClassController', ['$location', AddClassController]);
+        .controller('AddClassController', ['Classes', '$location', '$routeParams', AddClassController]);
 
-    function AddClassController($location) {
-    	// console.log($routeParams.token);
+    function AddClassController(Classes, $location, $routeParams) {
 
-    	// var response = EmailVerification.verify_token({token:$routeParams.token});
+        this.edit = true;
+        this.header = "New Class";
 
-    	// response.$promise.then(function(response){
-    	// 	console.log(response);
+        this.school_class = {
+            name: "",
+            days: "",
+            start_time: "",
+            end_time: "",
+            teacher_id: 0,
+            school_id: $routeParams.school_id)
+        }
 
-    	// 	// TODO: This .status is not correct
-    	// 	if(response.status > 299 ){
-    	// 		$location.path("/");
-    	// 	}
+        this.createClass = function(class) {              
+            class.school_class_id = $routeParams.class_id
 
-    	// 	this.email = response['email'];
-
-     //        // TODO: Create the district here
-     //        // GET the ID from the district
-
-
-     //        AdminAccount.create({
-     //            email: this.email,
-     //            district_id: this.district_id,
-     //            password: password
-     //            // add other attributes here.
-     //        })
-    	// }.bind(this))
-
-    	// TODO: set up submission function
+            Classes.save({"school_class":school_class}, function(res){
+                console.log("success");
+                $location.path("/school/" + $routeParams.school_id);
+            }, function(err){
+                console.log("A request resulted in an error...");
+                console.log(err);
+            });
+        } 
     }
 })();

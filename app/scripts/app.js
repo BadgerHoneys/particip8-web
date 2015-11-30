@@ -68,9 +68,14 @@ angular
         controllerAs: 'add_teacher_ctrl'
       })
       .when('/add_class', {
-        templateUrl: 'app/views/add_class.html',
+        templateUrl: 'app/views/edit_class.html',
         controller: 'AddClassController',
-        controllerAss: 'add_class_ctrl'
+        controllerAs: 'edit_class_ctrl'
+      })
+      .when('/edit_class/:class_id', {
+        templateUrl: 'app/views/edit_class.html',
+        controller: 'EditClassController',
+        controllerAs: 'edit_class_ctrl'
       })
       .when('/about', {
         templateUrl: '/app/views/about.html',

@@ -27,22 +27,24 @@
 
         // }.bind(this));
 
+        this.makeTeacher = function() {
+            var currentPath = $location.path();
+            $location.path(currentPath + '/add_teacher');
+        }
 
-        // this.makeReport = function() {
-        //     // add a service request to a domain level function
-        //     // create an excel sheet or something?
-        // }
+        this.editTeacher = function(teacher) {
+            var currentPath = $location.path();
+            #location.path(currentPath + '/edit_teacher/' + teacher.id);
+        }
 
-        // this.newEvaluation = function() {
-        //     // how does it know which class these should be related to?
-        //     // probably through cookies or something
-        //     var currentPath = $location.path();
-        //     $location.path(currentPath + '/evaluation_template');
-        // }
+        this.makeClass = function() {
+            var currentPath = $location.path();
+            $location.path(currentPath + '/add_class');
+        }
 
-        // this.editEvaluation = function(evaluation) {
-        //     var currentPath = $location.path();
-        //     $location.path(currentPath + '/evaluation_template/' + evaluation.id);
-        // }
+        this.editClass = function(class) {
+            var currentPath = $location.path();
+            $location.path(currentPath + '/edit_class/' + class.id);
+        }
     }
 })();
