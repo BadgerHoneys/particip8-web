@@ -12,33 +12,18 @@
 
     function PasswordResetController(PasswordReset, $routeParams, $location) {
 
-        console.log("Password Reset Controller Loaded");
-        console.log("Token: ");
-        console.log($routeParams.token);
-
-        this.user = {
-            "email": "",
-            "password": "",
-            "password_confirm": ""
-        }
-
-        var response = PasswordReset.verify_token({token:$routeParams.token});
-
-        response.$promise.then(function(response){
-            console.log("Page load response");
-            console.log(response);
-
-            //check for status > 299
-
-            this.user.email = response.email;
-
+        var user = PasswordReset.get({id: $routeParams.id})
+        user.$promise.then(function(user){
+            this.user = user;
+            //if the user object was not returned, reroute to the main page
         }.bind(this));
 
-
-
         this.resetPassword = function(){
-            console.log("Resetting Password");
-        }
-
+            var reset = PasswordReset.update({id: $routeParams.id},
+                {"user": this.user});
+            reset.$promise.then(function(user){
+                $location.path('/');
+            })
+        }.bind(this);
     }
 })();
