@@ -92,7 +92,7 @@ angular
         controller: 'CreateAccountController',
         controllerAs: 'create_account_ctrl'
       })
-      .when('/reset_password/:token', {
+      .when('/reset_password/:id', {
         templateUrl: 'app/views/password_reset.html',
         controller: 'PasswordResetController',
         controllerAs: 'password_reset_ctrl'

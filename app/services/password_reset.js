@@ -11,16 +11,8 @@
 
     function PasswordResetFactory($resource, base_url) {
 
-        return $resource(base_url + '/password_reset', {}, 
-        {
-        	verify_token: {
-        		url: base_url + '/password_reset/verify_token',
-        		method:'POST'
-            },
-            generate_token: {
-                url: base_url + '/password_reset/generate_token',
-                method:'POST'
-            }
-    	});
+        return $resource(base_url + '/password_reset/:id', {id: '@id'}, {
+            update: {method: 'PUT'}
+        });
     };
 })();
