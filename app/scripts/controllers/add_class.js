@@ -17,12 +17,10 @@
             start_time: "",
             end_time: "",
             teacher_id: 0,
-            school_id: $routeParams.school_id)
+            school_id: $routeParams.school_id
         }
 
-        this.createClass = function(class) {              
-            class.school_class_id = $routeParams.class_id
-
+        this.createClass = function(school_class) {
             Classes.save({"school_class":school_class}, function(res){
                 console.log("success");
                 $location.path("/school/" + $routeParams.school_id);

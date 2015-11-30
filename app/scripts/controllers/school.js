@@ -34,7 +34,7 @@
 
         this.editTeacher = function(teacher) {
             var currentPath = $location.path();
-            #location.path(currentPath + '/edit_teacher/' + teacher.id);
+            $location.path(currentPath + '/edit_teacher/' + teacher.id);
         }
 
         this.makeClass = function() {
@@ -42,9 +42,9 @@
             $location.path(currentPath + '/add_class');
         }
 
-        this.editClass = function(class) {
+        this.editClass = function(school_class) {
             var currentPath = $location.path();
-            $location.path(currentPath + '/edit_class/' + class.id);
+            $location.path(currentPath + '/edit_class/' + school_class.id);
         }
     }
 })();
