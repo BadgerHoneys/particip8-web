@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.timepicker'
   ])
   // Change this based on environment
   .value("base_url","http://localhost:3000")
