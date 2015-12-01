@@ -11,7 +11,8 @@
 
     function PasswordResetFactory($resource, base_url) {
 
-        return $resource(base_url + '/password_reset/:id', {id: '@id'}, {
+        return $resource(base_url + '/password_reset/:id', {id: '@id'},
+        {
             update: {method: 'PUT'}
         });
     };

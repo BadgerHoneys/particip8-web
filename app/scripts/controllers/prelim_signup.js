@@ -13,7 +13,7 @@
     	this.verifyEmail = function(){
     		console.log(this.email);
 
-    		EmailVerification.generate_token({email:this.email}, function(res){
+    		EmailVerification.save({email:this.email}, function(res){
                 console.log("success");                
 
 	    		// TODO: The generate_token endpoint will not normally return the
@@ -23,7 +23,6 @@
                 console.log("A request resulted in an error...");
                 console.log(err);
             });
-
     	}
     }
 })();
