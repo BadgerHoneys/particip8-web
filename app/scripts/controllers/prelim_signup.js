@@ -21,7 +21,7 @@
 
 	    		// TODO: The generate_token endpoint will not normally return the
 	    		// token. This must be refactored once emailing works.
-                $location.path("/create_account/" + res['token']);
+                $location.path("/create_account/" + res['email_verification_token']);
             }, function(err){
                 console.log("A request resulted in an error...");
                 console.log(err);

@@ -11,7 +11,7 @@
 
     function EmailVerificationFactory($resource, base_url) {
 
-        return $resource(base_url + '/email_verification', {id: '@id'}, 
+        return $resource(base_url + '/email_verification/:id', {id: '@id'}, 
         {
         	update: {method: 'PUT'}
     	});
