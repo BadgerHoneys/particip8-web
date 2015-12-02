@@ -9,11 +9,14 @@
     function PrelimSignupController(EmailVerification, $location) {
 
     	this.email = "";
+        this.district_name = "";
 
     	this.verifyEmail = function(){
-    		console.log(this.email);
 
-    		EmailVerification.save({email:this.email}, function(res){
+    		EmailVerification.save({
+                email:this.email,
+                district_name: this.district_name
+            }, function(res){
                 console.log("success");                
 
 	    		// TODO: The generate_token endpoint will not normally return the
