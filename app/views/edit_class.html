@@ -23,21 +23,81 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<label for="StartTime" class="selection_label">Start Time</label>
-			<input ui-timepicker id="StartTime" name="start_time" class="selection_input" 
-			ng-model="edit_class_ctrl.school_class.start_time" />			
-		</div>
-	</div>
+	<br>
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<label for="EndTime" class="selection_label">End Time</label>
-			<input ui-timepicker="timePickerOptions" id="EndTime" name="end_time" class="selection_input" 
-			ng-model="edit_class_ctrl.school_class.end_time" />			
+			<label class="selection_label">Start Time</label><br>
+			<label class="time_label col-md-1">Hour:</label>
+			<select id="StartHour" class="selection_input col-md-2" ng-model="edit_class_ctrl.start_hour">
+				<option value="01">1</option>
+				<option value="02">2</option>
+				<option value="03">3</option>
+				<option value="04">4</option>
+				<option value="05">5</option>
+				<option value="06">6</option>
+				<option value="07">7</option>
+				<option value="08">8</option>
+				<option value="09">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="00">12</option>
+			</select>
+
+			<label class="time_label col-md-2">Minute:</label>
+			<select id="StartMin" class="selection_input col-md-2" ng-model="edit_class_ctrl.start_min">
+				<option value="00">00</option>
+				<option value="15">15</option>
+				<option value="30">30</option>
+				<option value="45">45</option>
+			</select>
+
+			<label class="time_label col-md-2">AM/PM:</label>
+			<select class="selection_input col-md-2" ng-model="edit_class_ctrl.start_ampm">
+				<option value="am">AM</option>
+				<option value="pm">PM</option>
+			</select>
 		</div>
 	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label class="selection_label">End Time</label><br>
+			<label class="time_label col-md-1">Hour:</label>
+			<select id="EndHour" class="selection_input col-md-2" ng-model="edit_class_ctrl.end_hour">
+				<option value="01">1</option>
+				<option value="02">2</option>
+				<option value="03">3</option>
+				<option value="04">4</option>
+				<option value="05">5</option>
+				<option value="06">6</option>
+				<option value="07">7</option>
+				<option value="08">8</option>
+				<option value="09">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="00">12</option>
+			</select>
+
+			<label class="time_label col-md-2">Minute:</label>
+			<select id="EndMin" class="selection_input col-md-2" ng-model="edit_class_ctrl.end_min">
+				<option value="00">00</option>
+				<option value="15">15</option>
+				<option value="30">30</option>
+				<option value="45">45</option>
+			</select>
+
+			<label class="time_label col-md-2">AM/PM:</label>
+			<select class="selection_input col-md-2" ng-model="edit_class_ctrl.end_ampm">
+				<option value="am">AM</option>
+				<option value="pm">PM</option>
+			</select>		
+		</div>
+	</div>
+
+	<br>
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">

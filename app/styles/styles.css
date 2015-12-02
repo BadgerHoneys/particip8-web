@@ -368,3 +368,10 @@ html, body{
 	width:100px;
 	text-align:center;
 }
+
+.time_label{
+	color:#444444;
+	font-size:16px;
+	padding-top:8px;
+	text-align:right;
+}
