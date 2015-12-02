@@ -4,12 +4,19 @@
 
     angular
         .module('particip8WebApp')
-        .controller('AddClassController', ['Classes', '$location', '$routeParams', AddClassController]);
+        .controller('AddClassController', ['Classes', '$location', '$scope', '$routeParams', AddClassController]);
 
-    function AddClassController(Classes, $location, $routeParams) {
+    function AddClassController(Classes, $location, $scope, $routeParams) {
 
-        this.edit = true;
+        this.edit = false;
         this.header = "New Class";
+
+        this.start_hour = "";
+        this.start_min = "";
+        this.start_ampm = "";
+        this.end_hour = "";
+        this.end_min = "";
+        this.end_ampm = "";
 
         this.school_class = {
             name: "",
@@ -20,7 +27,21 @@
             school_id: $routeParams.school_id
         }
 
+
+
         this.createClass = function(school_class) {
+            // build out the 2 time objects here
+            if(start_ampm == "pm"){
+                start_hour += 12;
+            }
+
+            if (end_ampm = "pm"){
+                end_hour += 12;
+            }
+
+            school_class.start_time = new Date("2015-03-25T" + start_hour + ":" + start_min + ":00");
+            school_class.end_time = new Date("2015-03-25T" + end_hour + ":" + end_min + ":00");
+
             Classes.save({"school_class":school_class}, function(res){
                 console.log("success");
                 $location.path("/school/" + $routeParams.school_id);
