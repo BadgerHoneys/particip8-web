@@ -21,10 +21,25 @@
 
         var user = EmailVerification.get({id: $routeParams.id});
         user.$promise.then(function(user){
-            console.log("promise invoken....user:");
+            console.log("promise invoked....user:");
             console.log(user);
             vm.user = user;
-        })
+        });
+
+        vm.submitAccount = function(){
+            console.log("performing validation here");
+
+            console.log(vm.user);
+
+            EmailVerification.update(
+                {id: vm.user.id},
+                {"user": vm.user},
+                function(res){
+                    console.log("update response: ");
+                    console.log(res);
+                }
+            );
+        }
 
 /*
     	var response = EmailVerification.verify_token({token:$routeParams.token});
