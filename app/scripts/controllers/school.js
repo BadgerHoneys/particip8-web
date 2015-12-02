@@ -7,27 +7,12 @@
         SchoolController]);
 
     function SchoolController($location, $cookies, $http, $routeParams) {
-        // this.school_classes_id = $routeParams.id;
+        // TODO: Get all of the classes for this school
 
-        // this.class_name = "";
-        // this.evaluations_templates = [];
-        // this.students = [];
+        
+        // TODO: Get all of the teachers for this school
 
-        // //hit /school_classes/:id and get class, evaluation templates, and student information
-        // this.Class = Classes.get({id: this.school_classes_id});
-
-        // this.Class.$promise.then(function(Class){
-        //     this.name = Class.name;
-        //     this.evaluation_templates = Class.evaluation_templates;
-
-        //     console.log("Evaluation Template...");
-        //     console.log(this.evaluation_templates);
-
-        //     this.students = Class.students;
-
-        // }.bind(this));
-
-        this.makeTeacher = function() {
+        this.newTeacher = function() {
             var currentPath = $location.path();
             $location.path(currentPath + '/add_teacher');
         }
@@ -37,7 +22,7 @@
             $location.path(currentPath + '/edit_teacher/' + teacher.id);
         }
 
-        this.makeClass = function() {
+        this.newClass = function() {
             var currentPath = $location.path();
             $location.path(currentPath + '/add_class');
         }

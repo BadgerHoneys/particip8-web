@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<label for="Days" class="selection_label">Class Name</label>
+			<label for="Days" class="selection_label">Days</label>
 			<input type="text" id="Days" name="days" class="selection_input" 
 			ng-model="edit_class_ctrl.school_class.days" placeholder="E.g. 'MWF'" />			
 		</div>
@@ -25,9 +25,24 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<label for="Days" class="selection_label">Class Name</label>
-			<input type="text" id="Days" name="days" class="selection_input" 
-			ng-model="edit_class_ctrl.school_class.days" placeholder="E.g. 'MWF'" />			
+			<label for="StartTime" class="selection_label">Start Time</label>
+			<input ui-timepicker id="StartTime" name="start_time" class="selection_input" 
+			ng-model="edit_class_ctrl.school_class.start_time" />			
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label for="EndTime" class="selection_label">End Time</label>
+			<input ui-timepicker="timePickerOptions" id="EndTime" name="end_time" class="selection_input" 
+			ng-model="edit_class_ctrl.school_class.end_time" />			
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label for="Teacher" class="selection_label">Teacher</label>
+			<input type="text" id="Teacher" name="teacher" class="selection_input" ng-model="edit_class_ctrl.school_class.teacher" placeholder="UPDATE THIS AND ADD TEACHER BUTTON" />
 		</div>
 	</div>
 

@@ -20,6 +20,13 @@
             school_id: $routeParams.school_id
         }
 
+        $scope.timePickerOptions = {
+            step: 10,
+            timeFormat: 'g:ia',
+            appendTo: 'body',
+            asMoment: true
+        };
+
         this.createClass = function(school_class) {
             Classes.save({"school_class":school_class}, function(res){
                 console.log("success");
