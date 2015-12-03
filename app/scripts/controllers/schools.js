@@ -26,9 +26,9 @@
             $location.path('/school/' + school.id);
         }
 
-        this.addClass = function()
+        this.addSchool = function()
         {
-            $location.path('/create_school/');
+            $location.path('/create_school');
         }
     }
 })();
