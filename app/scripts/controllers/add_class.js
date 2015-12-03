@@ -4,9 +4,9 @@
 
     angular
         .module('particip8WebApp')
-        .controller('AddClassController', ['Classes', '$location', '$scope', '$routeParams', AddClassController]);
+        .controller('AddClassController', ['Classes', 'Teachers', '$location', '$scope', '$routeParams', AddClassController]);
 
-    function AddClassController(Classes, $location, $scope, $routeParams) {
+    function AddClassController(Classes, Teachers, $location, $scope, $routeParams) {
 
         this.edit = false;
         this.header = "New Class";
@@ -27,7 +27,7 @@
             school_id: $routeParams.school_id
         }
 
-
+        this.teachers = Teachers.query();
 
         this.createClass = function(school_class) {
             // build out the 2 time objects here

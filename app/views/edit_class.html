@@ -9,7 +9,7 @@
 <form name="Classes" role="form">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<label for="Name" class="selection_label">Class Name</label>
+			<label for="Name" class="selection_label">Name</label>
 			<input type="text" id="Name" name="name" class="selection_input" 
 			ng-model="edit_class_ctrl.school_class.name" placeholder="Class's Name" autofocus />			
 		</div>
@@ -47,9 +47,11 @@
 			<label class="time_label col-md-2">Minute:</label>
 			<select id="StartMin" class="selection_input col-md-2" ng-model="edit_class_ctrl.start_min">
 				<option value="00">00</option>
-				<option value="15">15</option>
-				<option value="30">30</option>
-				<option value="45">45</option>
+				<option value="15">10</option>
+				<option value="30">20</option>
+				<option value="45">30</option>
+				<option value="45">40</option>
+				<option value="45">50</option>
 			</select>
 
 			<label class="time_label col-md-2">AM/PM:</label>
@@ -84,9 +86,11 @@
 			<label class="time_label col-md-2">Minute:</label>
 			<select id="EndMin" class="selection_input col-md-2" ng-model="edit_class_ctrl.end_min">
 				<option value="00">00</option>
-				<option value="15">15</option>
-				<option value="30">30</option>
-				<option value="45">45</option>
+				<option value="15">10</option>
+				<option value="30">20</option>
+				<option value="45">30</option>
+				<option value="45">40</option>
+				<option value="45">50</option>
 			</select>
 
 			<label class="time_label col-md-2">AM/PM:</label>
@@ -102,7 +106,11 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<label for="Teacher" class="selection_label">Teacher</label>
-			<input type="text" id="Teacher" name="teacher" class="selection_input" ng-model="edit_class_ctrl.school_class.teacher" placeholder="UPDATE THIS AND ADD TEACHER BUTTON" />
+			
+			 <select id="Teacher" name="teacher_id" class="selection_input"
+			ng-model="edit_class_ctrl.school_class.teacher_id"
+			ng-options="teacher.id as teacher.name for teacher_id in edit_class_ctrl.teachers">
+			</select>
 		</div>
 	</div>
 
