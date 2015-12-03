@@ -1,14 +1,47 @@
 (function () {
     'use strict';
 
-
     angular
         .module('particip8WebApp')
-        .controller('CreateAccountController', ['EmailVerification', 'AdminAccount', '$routeParams', '$location', CreateAccountController]);
+        .controller('CreateAccountController', [
+            'EmailVerification',
+            'AdminAccount',
+            '$routeParams',
+            '$location',
+            CreateAccountController
+        ]);
 
-    function CreateAccountController(EmailVerification, AdminAccount, $routeParams, $location) {
-    	console.log($routeParams.token);
+    function CreateAccountController(EmailVerification,AdminAccount,
+        $routeParams, $location) {
 
+        //make a GET to EmailVerification, providing the token
+        //found in $routeParams.id as the id
+
+        var vm = this;
+
+        var user = EmailVerification.get({id: $routeParams.id});
+        user.$promise.then(function(user){
+            console.log("promise invoked....user:");
+            console.log(user);
+            vm.user = user;
+        });
+
+        vm.submitAccount = function(){
+            console.log("performing validation here");
+
+            console.log(vm.user);
+
+            EmailVerification.update(
+                {id: vm.user.id},
+                {"user": vm.user},
+                function(res){
+                    console.log("update response: ");
+                    console.log(res);
+                }
+            );
+        }
+
+/*
     	var response = EmailVerification.verify_token({token:$routeParams.token});
 
     	response.$promise.then(function(response){
@@ -34,5 +67,6 @@
     	}.bind(this))
 
     	// TODO: set up submission function
+*/
     }
 })();

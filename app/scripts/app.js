@@ -117,7 +117,7 @@ angular
         controller: 'ReportController',
         controllerAs: 'report_ctrl'
       })
-      .when('/create_account/:token', {
+      .when('/create_account/:id', {
         templateUrl: 'app/views/create_account.html',
         controller: 'CreateAccountController',
         controllerAs: 'create_account_ctrl'

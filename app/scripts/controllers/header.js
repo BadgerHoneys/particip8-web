@@ -7,6 +7,11 @@
 
     function HeaderController($cookies, $location) {
 
+        var vm = this;
+
+        //replace this with logic from an injected session controller
+        vm.logged_in = true;
+
         this.logout = function(){
 
             //remove the auth_token from cookies 

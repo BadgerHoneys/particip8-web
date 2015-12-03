@@ -12,18 +12,20 @@
 
     function PasswordResetController(PasswordReset, $routeParams, $location) {
 
+        var vm = this;
+
         var user = PasswordReset.get({id: $routeParams.id})
         user.$promise.then(function(user){
-            this.user = user;
+            vm.user = user;
             //if the user object was not returned, reroute to the main page
-        }.bind(this));
+        });
 
-        this.resetPassword = function(){
-            var reset = PasswordReset.update({id: $routeParams.id},
-                {"user": this.user});
+        vm.resetPassword = function(){
+            var reset = PasswordReset.update({id: vm.user.id},
+                {"user": vm.user});
             reset.$promise.then(function(user){
                 $location.path('/');
             })
-        }.bind(this);
+        };
     }
 })();
