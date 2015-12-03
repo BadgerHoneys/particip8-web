@@ -49,6 +49,7 @@
 
         this.manageClass = function(classroom)
         {
+            console.log(classroom);
             $location.path('/class/' + classroom.id);
         }
 

@@ -13,6 +13,7 @@
         Schools.query(function(school_data){
             this.schools = school_data.map(function(obj){
                 return {
+                    id: obj.id,
                     name: obj.name,
                     students: obj.students,
                     teachers: obj.teachers,

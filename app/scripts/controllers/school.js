@@ -3,14 +3,18 @@
 
     angular
         .module('particip8WebApp')
-        .controller('SchoolController', ['$location', '$cookies', '$http', '$routeParams',
+        .controller('SchoolController', ['Schools', '$location', '$cookies', '$http', '$routeParams',
         SchoolController]);
 
-    function SchoolController($location, $cookies, $http, $routeParams) {
-        // TODO: Get all of the classes for this school
+    function SchoolController(Schools, $location, $cookies, $http, $routeParams) {
+        this.School = Schools.get({id: $routeParams.id});
 
-        
-        // TODO: Get all of the teachers for this school
+        this.School.$promise.then(function(School){
+            this.name = School.name;
+            this.teachers = School.teachers;
+            this.school_classes = School.school_classes;
+        }.bind(this));
+
 
         this.newTeacher = function() {
             var currentPath = $location.path();

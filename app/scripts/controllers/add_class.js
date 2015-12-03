@@ -4,9 +4,9 @@
 
     angular
         .module('particip8WebApp')
-        .controller('AddClassController', ['Classes', 'Teachers', '$location', '$scope', '$routeParams', AddClassController]);
+        .controller('AddClassController', ['Classes', 'Schools', '$location', '$scope', '$routeParams', AddClassController]);
 
-    function AddClassController(Classes, Teachers, $location, $scope, $routeParams) {
+    function AddClassController(Classes, Schools, $location, $scope, $routeParams) {
 
         this.edit = false;
         this.header = "New Class";
@@ -27,7 +27,14 @@
             school_id: $routeParams.school_id
         }
 
-        this.teachers = Teachers.query();
+        this.teachers = Schools.teachers({id: $routeParams.id});
+
+        this.teachers.$promise.then(function(response){
+            response.forEach(function(teacher){
+                teacher.full_name = teacher.first_name + " " + teacher.last_name
+            });
+            response;
+        });
 
         this.createClass = function(school_class) {
             // build out the 2 time objects here
@@ -44,7 +51,7 @@
 
             Classes.save({"school_class":school_class}, function(res){
                 console.log("success");
-                $location.path("/school/" + $routeParams.school_id);
+                $location.path("/school/" + $routeParams.id);
             }, function(err){
                 console.log("A request resulted in an error...");
                 console.log(err);

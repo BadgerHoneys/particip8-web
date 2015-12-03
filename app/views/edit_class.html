@@ -109,7 +109,7 @@
 			
 			 <select id="Teacher" name="teacher_id" class="selection_input"
 			ng-model="edit_class_ctrl.school_class.teacher_id"
-			ng-options="teacher.id as teacher.name for teacher_id in edit_class_ctrl.teachers">
+			ng-options="teacher.id as teacher.full_name for teacher in edit_class_ctrl.teachers">
 			</select>
 		</div>
 	</div>
