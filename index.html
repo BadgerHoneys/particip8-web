@@ -13,23 +13,28 @@
 
     <div class="header" ng-controller="HeaderController as header">
       <div class="container">
-        <a ng-href="#/classes">
-          <div class="logo">
-            <img src="app/images/Particip8_Logo.png" />
-          </div>
-        </a>
+        <div class="logo">
+            <a ng-href="#/classes" ng-if="header.logged_in">
+                <img src="app/images/Particip8_Logo.png" />
+            </a>
 
-        <a class="nav-item" ng-click="header.logout()">
-            Logout
-        </a>
+            <img ng-if="!header.logged_in" 
+                src="app/images/Particip8_Logo.png" />
+        </div>
 
-        <a class="nav-item" href="/#/report_selection">
-            View Reports
-        </a>
-        
-        <a class="nav-item" href="/#/classes">
-            My Classes
-        </a>
+        <div ng-if="header.logged_in">
+            <a class="nav-item" ng-click="header.logout()">
+                Logout
+            </a>
+
+            <a class="nav-item" href="/#/report_selection">
+                View Reports
+            </a>
+            
+            <a class="nav-item" href="/#/classes">
+                My Classes
+            </a>
+        </div>
         
       </div>
     </div>
