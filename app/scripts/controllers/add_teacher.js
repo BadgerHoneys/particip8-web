@@ -19,13 +19,13 @@
         }
 
         this.createTeacher = function(teacher) {
-            EmailVerification.save(this.teacher, function(res){
+            EmailVerification.save({"user":teacher}, function(res){
                 console.log("success");
                 $location.path("/school/" + $routeParams.id);
             }, function(err){
                 console.log("A request resulted in an error...");
                 console.log(err);
             });
-        }.bind(this);
+        }
     }
 })();

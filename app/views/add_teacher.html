@@ -6,12 +6,20 @@
 
 <hr/>
 
-<form name="EvaluationTemplate" role="form">
+<form name="Teacher" role="form">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<label for="Email" class="selection_label">Email</label>
+			<input type="text" id="Email" name="email" class="selection_input" 
+			ng-model="add_teacher_ctrl.teacher.email" placeholder="Teacher's Email Address" autofocus />			
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<label for="FirstName" class="selection_label">First Name</label>
 			<input type="text" id="FirstName" name="first_name" class="selection_input" 
-			ng-model="add_teacher_ctrl.teacher.first_name" placeholder="Teacher's First Name" autofocus />			
+			ng-model="add_teacher_ctrl.teacher.first_name" placeholder="Teacher's First Name" />			
 		</div>
 	</div>
 
@@ -19,15 +27,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<label for="LastName" class="selection_label">Last Name</label>
 			<input type="text" id="LastName" name="last_name" class="selection_input" 
-			ng-model="add_teacher_ctrl.teacher.last_name" placeholder="Teacher's Last Name" autofocus />			
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<label for="Email" class="selection_label">Email</label>
-			<input type="text" id="Email" name="email" class="selection_input" 
-			ng-model="add_teacher_ctrl.teacher.email" placeholder="Teacher's Email Address" autofocus />			
+			ng-model="add_teacher_ctrl.teacher.last_name" placeholder="Teacher's Last Name" />			
 		</div>
 	</div>
 
