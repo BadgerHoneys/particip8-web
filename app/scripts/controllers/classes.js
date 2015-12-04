@@ -8,7 +8,7 @@
 
     function ClassesController(Classes, $location, $cookies, $http) {
         
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
         
 
         this.classes = [];

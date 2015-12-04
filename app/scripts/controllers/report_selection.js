@@ -8,7 +8,7 @@
 
     function ReportSelectionController(Classes, $http, $cookies, $location) {
         
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
         
 
     	//get the classes for a particular teacher

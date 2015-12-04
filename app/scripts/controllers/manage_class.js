@@ -8,7 +8,7 @@
     
     function ManageClassController(EditClass, Classes, $http, $cookies, $location, $routeParams) {
         
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
         
 
         var teacher_id = $routeParams.id;

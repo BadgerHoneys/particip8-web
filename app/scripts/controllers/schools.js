@@ -8,7 +8,7 @@
 
     function SchoolsController(Schools, $location, $cookies, $http) {
         
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
         
 
         this.schools = [];

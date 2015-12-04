@@ -4,11 +4,13 @@
 
     angular
         .module('particip8WebApp')
-        .controller('AddClassController', ['Classes', 'Schools', '$location', '$scope', '$http', '$routeParams', AddClassController]);
+        .controller('AddClassController', ['Classes', 'Schools', '$location', '$scope', '$cookies', '$http', '$routeParams', AddClassController]);
 
-    function AddClassController(Classes, Schools, $location, $scope, $http, $routeParams) {
+    function AddClassController(Classes, Schools, $location, $scope, $cookies, $http, $routeParams) {
 
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
+
+        console.log($routeParams.id);
         
         this.edit = false;
         this.header = "New Class";
@@ -26,7 +28,7 @@
             start_time: "",
             end_time: "",
             teacher_id: 0,
-            school_id: $routeParams.school_id
+            school_id: $routeParams.id
         }
 
         this.teachers = Schools.teachers({id: $routeParams.id});

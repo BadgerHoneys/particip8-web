@@ -4,38 +4,27 @@
 
     angular
         .module('particip8WebApp')
-        .controller('AddTeacherController', ['$location', '$http', AddTeacherController]);
+        .controller('AddTeacherController', ['TeacherVerification', '$location', '$routeParams', '$cookies', '$http', AddTeacherController]);
 
-    function AddTeacherController($location, $http) {
+    function AddTeacherController(TeacherVerification, $location, $routeParams, $cookies, $http) {
 
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
-        
-    	// console.log($routeParams.token);
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
 
-    	// var response = EmailVerification.verify_token({token:$routeParams.token});
+        this.teacher = {
+            first_name: "",
+            last_name: "",
+            email: "",
+            school_id: $routeParams.id
+        }
 
-    	// response.$promise.then(function(response){
-    	// 	console.log(response);
-
-    	// 	// TODO: This .status is not correct
-    	// 	if(response.status > 299 ){
-    	// 		$location.path("/");
-    	// 	}
-
-    	// 	this.email = response['email'];
-
-     //        // TODO: Create the district here
-     //        // GET the ID from the district
-
-
-     //        AdminAccount.create({
-     //            email: this.email,
-     //            district_id: this.district_id,
-     //            password: password
-     //            // add other attributes here.
-     //        })
-    	// }.bind(this))
-
-    	// TODO: set up submission function
+        this.createTeacher = function(teacher) {
+            TeacherVerification.save(this.teacher, function(res){
+                console.log("success");
+                $location.path("/school/" + $routeParams.id);
+            }, function(err){
+                console.log("A request resulted in an error...");
+                console.log(err);
+            });
+        }.bind(this);
     }
 })();

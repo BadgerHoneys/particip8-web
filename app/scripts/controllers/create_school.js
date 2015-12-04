@@ -4,11 +4,11 @@
 
     angular
         .module('particip8WebApp')
-        .controller('CreateSchoolController', ['Schools', '$http', '$location', CreateSchoolController]);
+        .controller('CreateSchoolController', ['Schools', '$http', '$cookies', '$location', CreateSchoolController]);
 
-    function CreateSchoolController(Schools, $http, $location) {
+    function CreateSchoolController(Schools, $http, $cookies, $location) {
 
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];        
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");        
 
         this.new_school = {
             "name": "",

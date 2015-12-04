@@ -4,19 +4,15 @@
 
     angular
         .module('particip8WebApp')
-        .controller('PrelimSignupController', ['EmailVerification', '$http', '$location', PrelimSignupController]);
+        .controller('PrelimSignupController', ['AdminVerification', '$http', '$location', PrelimSignupController]);
 
-    function PrelimSignupController(EmailVerification, $http, $location) {
-        
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
-        
-
+    function PrelimSignupController(AdminVerification, $http, $location) {
     	this.email = "";
         this.district_name = "";
 
     	this.verifyEmail = function(){
 
-    		EmailVerification.save({
+    		AdminVerification.save({
                 email:this.email,
                 district_name: this.district_name
             }, function(res){

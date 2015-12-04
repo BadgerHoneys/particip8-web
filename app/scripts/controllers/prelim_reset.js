@@ -11,9 +11,6 @@
         ]);
 
     function PrelimResetController(PasswordReset, $http, $location) {
-
-        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
-
     	this.email = "";
 
         this.passwordResetEmail = function(){
