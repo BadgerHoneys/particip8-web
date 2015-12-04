@@ -6,6 +6,9 @@
         .controller('MainController', ['Sessions', '$cookies', '$location', '$http', MainController]);
     
     function MainController(Sessions, $cookies, $location, $http) {
+        
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        
 
     	this.user = {
     		email: "",

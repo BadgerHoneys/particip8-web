@@ -4,9 +4,12 @@
 
     angular
         .module('particip8WebApp')
-        .controller('AddTeacherController', ['$location', AddTeacherController]);
+        .controller('AddTeacherController', ['$location', '$http', AddTeacherController]);
 
-    function AddTeacherController($location) {
+    function AddTeacherController($location, $http) {
+
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        
     	// console.log($routeParams.token);
 
     	// var response = EmailVerification.verify_token({token:$routeParams.token});

@@ -7,6 +7,9 @@
         SchoolController]);
 
     function SchoolController(Schools, $location, $cookies, $http, $routeParams) {
+        
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        
         this.School = Schools.get({id: $routeParams.id});
 
         this.School.$promise.then(function(School){

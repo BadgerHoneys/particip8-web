@@ -7,6 +7,9 @@
         .controller('SchoolsController', ['Schools', '$location', '$cookies', '$http', SchoolsController]);
 
     function SchoolsController(Schools, $location, $cookies, $http) {
+        
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        
 
         this.schools = [];
 

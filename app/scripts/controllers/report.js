@@ -7,6 +7,9 @@
         .controller('ReportController', ['Classes', '$http', '$cookies', '$location', ReportController]);
 
     function ReportController(Classes, $http, $cookies, $location) {
+        
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        
 
         this.loading = true;
 

@@ -3,9 +3,11 @@
 
     angular
         .module('particip8WebApp')
-        .controller('HeaderController', ['$cookies', '$location', HeaderController]);
+        .controller('HeaderController', ['$cookies', '$http', '$location', HeaderController]);
 
-    function HeaderController($cookies, $location) {
+    function HeaderController($cookies, $http, $location) {
+
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
 
         var vm = this;
 

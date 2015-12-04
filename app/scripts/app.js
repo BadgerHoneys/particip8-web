@@ -62,7 +62,7 @@ angular
         controller: 'CreateSchoolController',
         controllerAs: 'create_school_ctrl'
       })
-      .when('/add_teacher', {
+      .when('/school/:id/add_teacher', {
         templateUrl: 'app/views/add_teacher.html',
         controller: 'AddTeacherController',
         controllerAs: 'add_teacher_ctrl'

@@ -5,11 +5,14 @@
         .module('particip8WebApp')
         .controller('PrelimResetController', [
             'PasswordReset',
+            '$http',
             '$location',
             PrelimResetController
         ]);
 
-    function PrelimResetController(PasswordReset, $location) {
+    function PrelimResetController(PasswordReset, $http, $location) {
+
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
 
     	this.email = "";
 

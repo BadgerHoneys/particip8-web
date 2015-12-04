@@ -4,9 +4,12 @@
 
     angular
         .module('particip8WebApp')
-        .controller('EditClassController', ['Classes', '$location', '$routeParams', EditClassController]);
+        .controller('EditClassController', ['Classes', '$location', '$http', '$routeParams', EditClassController]);
 
-    function EditClassController(Classes, $location, $routeParams) {
+    function EditClassController(Classes, $location, $http, $routeParams) {
+        
+        $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
+        
 
         this.edit = true;
         this.header = "Edit Class";
