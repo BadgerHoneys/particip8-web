@@ -4,35 +4,25 @@
 
     angular
         .module('particip8WebApp')
-        .controller('CreateSchoolController', ['$location', CreateSchoolController]);
+        .controller('CreateSchoolController', ['Schools', '$http', '$cookies', '$location', CreateSchoolController]);
 
-    function CreateSchoolController($location) {
-    	// console.log($routeParams.token);
+    function CreateSchoolController(Schools, $http, $cookies, $location) {
 
-    	// var response = EmailVerification.verify_token({token:$routeParams.token});
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");        
 
-    	// response.$promise.then(function(response){
-    	// 	console.log(response);
+        this.new_school = {
+            "name": "",
+            "district_id": 0
+        }
 
-    	// 	// TODO: This .status is not correct
-    	// 	if(response.status > 299 ){
-    	// 		$location.path("/");
-    	// 	}
-
-    	// 	this.email = response['email'];
-
-     //        // TODO: Create the district here
-     //        // GET the ID from the district
-
-
-     //        AdminAccount.create({
-     //            email: this.email,
-     //            district_id: this.district_id,
-     //            password: password
-     //            // add other attributes here.
-     //        })
-    	// }.bind(this))
-
-    	// TODO: set up submission function
+        this.createSchool = function(new_school) {
+            Schools.save({"school":new_school}, function(res){
+                console.log("success");
+                $location.path("/schools");
+            }, function(err){
+                console.log("A request resulted in an error...");
+                console.log(err);
+            });
+        } 
     }
 })();

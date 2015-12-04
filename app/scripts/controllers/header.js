@@ -3,9 +3,12 @@
 
     angular
         .module('particip8WebApp')
-        .controller('HeaderController', ['$cookies', '$location', HeaderController]);
+        .controller('HeaderController', ['$cookies', '$http', '$location', HeaderController]);
 
-    function HeaderController($cookies, $location) {
+    function HeaderController($cookies, $http, $location) {
+
+        // the auth token placed here (when headers work correctly) may solve our global auth problem.
+        // $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
 
         var vm = this;
 

@@ -5,12 +5,12 @@
         .module('particip8WebApp')
         .controller('PrelimResetController', [
             'PasswordReset',
+            '$http',
             '$location',
             PrelimResetController
         ]);
 
-    function PrelimResetController(PasswordReset, $location) {
-
+    function PrelimResetController(PasswordReset, $http, $location) {
     	this.email = "";
 
         this.passwordResetEmail = function(){

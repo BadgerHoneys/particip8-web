@@ -4,39 +4,35 @@
 
     angular
         .module('particip8WebApp')
-        .controller('SchoolsController', ['$location', '$cookies', '$http', SchoolsController]);
+        .controller('SchoolsController', ['Schools', '$location', '$cookies', '$http', SchoolsController]);
 
-    function SchoolsController($location, $cookies, $http) {
+    function SchoolsController(Schools, $location, $cookies, $http) {
+        
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
+        
 
         this.schools = [];
 
-        // TODO: Schools resource doesn't yet exist.
-
-        // get all schools from Schools resource and format response using Array.map method
-        // Schools.query(function(admin_data){
-
-        //     //assign schools list to controller
-        //     this.schools = admin_data.map(function(obj){
-
-        //         //return massaged school element
-        //         return {
-        //             id: obj.id,
-        //             name: obj.name,
-        //             students: obj.students,
-        //             teachers: obj.teachers,
-        //             classes: obj.classes
-        //         }
-        //     })
-        // }.bind(this));
+        Schools.query(function(school_data){
+            this.schools = school_data.map(function(obj){
+                return {
+                    id: obj.id,
+                    name: obj.name,
+                    students: obj.students,
+                    teachers: obj.teachers,
+                    classes: obj.school_classes
+                }
+            })
+        }.bind(this));
 
         this.manageSchool = function(school)
         {
             $location.path('/school/' + school.id);
         }
 
-        this.addClass = function()
+        this.addSchool = function()
         {
-            $location.path('/create_school/');
+            $location.path('/create_school');
         }
     }
 })();

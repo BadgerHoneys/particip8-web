@@ -6,13 +6,17 @@
         .controller('CreateAccountController', [
             'EmailVerification',
             'AdminAccount',
+            '$http',
+            '$cookies',
             '$routeParams',
             '$location',
             CreateAccountController
         ]);
 
-    function CreateAccountController(EmailVerification,AdminAccount,
-        $routeParams, $location) {
+    function CreateAccountController(EmailVerification,AdminAccount, $http, $cookies, $routeParams, $location) {
+        
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
+        
 
         //make a GET to EmailVerification, providing the token
         //found in $routeParams.id as the id

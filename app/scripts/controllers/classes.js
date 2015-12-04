@@ -7,6 +7,9 @@
         .controller('ClassesController', ['Classes', '$location', '$cookies', '$http', ClassesController]);
 
     function ClassesController(Classes, $location, $cookies, $http) {
+        
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
+        
 
         this.classes = [];
 
@@ -49,6 +52,7 @@
 
         this.manageClass = function(classroom)
         {
+            console.log(classroom);
             $location.path('/class/' + classroom.id);
         }
 

@@ -9,6 +9,9 @@
 
     function CreateEvaluationTemplateController(RatingTypes, EvaluationTemplates, 
         $location, $cookies, $http, $routeParams) {
+        
+        $http.defaults.headers.common["Auth-Token"] = $cookies.get("auth_token");
+        
 
         this.edit = false;
         this.header = "New Evaluation Template"

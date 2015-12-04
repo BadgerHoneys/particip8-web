@@ -20,11 +20,11 @@
 		<div class="class_section">
 			<div class="class_item" ng-repeat="teach in school_ctrl.teachers" ng-click="class_ctrl.editTeacher(teach)">
 				<div class="item_title">
-					{{ teacher.name }}
+					{{ teach.first_name }} {{ teach.last_name }}
 				</div>
 
 				<div class="item_info_lg">
-					{{ teacher.email }}
+					{{ teach.email }}
 				</div>
 
 				<div class="clearfix"></div>
@@ -44,7 +44,7 @@
 		</div>
 
 		<div class="class_section">
-			<div class="class_item" ng-repeat="this_class in school_ctrl.classess">
+			<div class="class_item" ng-repeat="this_class in school_ctrl.school_classes">
 				<div class="item_title">
 					{{ this_class.name }}
 				</div>
