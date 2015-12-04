@@ -4,17 +4,18 @@
 
     angular
         .module('particip8WebApp')
-        .controller('PrelimSignupController', ['AdminVerification', '$http', '$location', PrelimSignupController]);
+        .controller('PrelimSignupController', ['EmailVerification', '$http', '$location', PrelimSignupController]);
 
-    function PrelimSignupController(AdminVerification, $http, $location) {
+    function PrelimSignupController(EmailVerification, $http, $location) {
     	this.email = "";
         this.district_name = "";
 
     	this.verifyEmail = function(){
 
-    		AdminVerification.save({
+    		EmailVerification.save({
                 email:this.email,
-                district_name: this.district_name
+                district_name: this.district_name,
+                type:"admin"
             }, function(res){
                 console.log("success");                
 
