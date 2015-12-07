@@ -15,12 +15,12 @@
             last_name: "",
             email: "",
             school_id: $routeParams.id,
-            type: "teacher"
+            type: "Teacher"
         }
 
         this.createTeacher = function(teacher) {
             EmailVerification.save({"user":teacher}, function(res){
-                console.log("success");
+                console.log(res['email_verification_token']);
                 $location.path("/school/" + $routeParams.id);
             }, function(err){
                 console.log("A request resulted in an error...");

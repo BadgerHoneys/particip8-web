@@ -21,7 +21,11 @@
 
                 $http.defaults.headers.common["Auth-Token"] = res["auth_token"];
 
-                $location.path("/classes");
+                if(res["type"] == "Admin"){
+                    $location.path("/schools");
+                } else if (res["type"] == "Teacher"){
+                    $location.path("/classes");
+                }
 
             },function(err){
                 alert("There was an error when authenticating with the server...");

@@ -43,6 +43,8 @@
                     console.log(res);
                 }
             );
+
+            $location.path('/');
         }
 
 /*
