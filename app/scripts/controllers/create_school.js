@@ -12,7 +12,7 @@
 
         this.new_school = {
             "name": "",
-            "district_id": 0
+            "district_id": 1
         }
 
         this.createSchool = function(new_school) {
